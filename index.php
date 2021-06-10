@@ -7,20 +7,19 @@
 </head>
 <body>
     <h1>stuff here</h1>
-    <p>trying to push an update</p>
+    <p>trying to push an update. checking</p>
 <button id="someid">Click me!</button>
 </body>
 </html>
 
 <script>
 $("#someid").on("click", function(){
-
-
+    console.log("clicked");
     $.ajax({
         type: 'GET',
-        url: 'https://backend-gearheadmarketplace.herokuapp.com',
+        url: 'http://localhost:8000',
+        // url: 'https://backend-gearheadmarketplace.herokuapp.com',
         success: function(data){
-            console.log("clicked");
             console.log(data);
         }
     })
