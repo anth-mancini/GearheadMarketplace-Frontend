@@ -6,7 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <h1>stuff here</h1>
+    <h1>hello world</h1>
     <p>trying to push an update. checking</p>
     <button id="someid">Click me!</button>
     <button id="postid">Post data</button>
