@@ -20,8 +20,8 @@
         console.log("clicked");
         $.ajax({
             type: 'GET',
-            url: 'http://0.0.0.0:8000/users/?skip=0&limit=100',
-            // url: 'https://backend-gearheadmarketplace.herokuapp.com/users/?skip=0&limit=100',
+            //url: 'http://0.0.0.0:8000/users/?skip=0&limit=100',
+            url: 'https://backend-gearheadmarketplace.herokuapp.com/users/?skip=0&limit=100',
             success: function(data){
                 console.log(data);
             }
