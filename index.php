@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <title> Gear-Head Market Place </title>
     <link rel="stylesheet" href="css/homepage.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 
 <body>
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
+
 
 <header>
     <div class="wrapper">
