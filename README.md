@@ -2,13 +2,13 @@
  
 How to set-up a local dev environment: 
 
-Get a AMP for whatever system you're using and follow the steps for integrating this into phpStorm: 
+Recommended IDE: phpStorm: https://www.jetbrains.com/phpstorm/download/
 
-https://www.jetbrains.com/help/phpstorm/installing-an-amp-package.html
+When getting the AMP server app make sure you get PHP 8+ versions. 
 
-Recommended IDE: phpStorm
+Get a AMP for whatever system you're using and follow the steps for integrating this into phpStorm: https://www.jetbrains.com/help/phpstorm/installing-an-amp-package.html
 
-Current DB type is PostgreSQL so if you're making a local one, use that. 
+(Optional) Current DB type is PostgreSQL so if you're making a local one, use that. 
 
 Before you start your AMP server, point the root dir to the dir of the PHP app. 
 
@@ -18,7 +18,7 @@ The dir on a MAC is something like: Users ▹ userName ▹ PhpstormProjects ▹ 
 
 On Windows:
 
-Make sure the Apache service is installed (make sure XAMPP is ran in Admin mode)
+Make sure the Apache service is installed (make sure XAMPP is ran in Admin mode). If there's an 'X' it means it's not installed. Click on the 'X' to install so it turns into a check mark. 
 
 Click on Config on the Apache line then httpd.conf:
 
@@ -33,7 +33,7 @@ Example:
 DocumentRoot "C:\Users\USERNAME\Documents\GitHub\GearheadMarketplace-Frontend"
 <Directory "C:\Users\USERNAME\Documents\GitHub\GearheadMarketplace-Frontend">
 
-Start your AMP server and that completes your local dev env
+Start your AMP server and that completes your local dev env. Happy coding! 
 
 Unrelated but if you are interested in the deployment part: 
 
