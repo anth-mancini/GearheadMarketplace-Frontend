@@ -25,8 +25,7 @@
         let weight = "1";
         let originPostalCode = "H2B1A0";
         let postalCode = "K1K4T3";
-        var text=`<?xml version="1.0" encoding="utf-8"?>
-      <mailing-scenario xmlns="http://www.canadapost.ca/ws/ship/rate-v4">
+        var text=`<mailing-scenario xmlns="http://www.canadapost.ca/ws/ship/rate-v4">
         <customer-number>${mailedBy}</customer-number>
         <parcel-characteristics>
         <weight>${weight}</weight>
