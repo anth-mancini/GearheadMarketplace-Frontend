@@ -38,18 +38,17 @@
           </domestic>
         </destination>
       </mailing-scenario>`;
-        console.log(text);
+        // console.log(text);
         var parser = new DOMParser();
         var xmlDoc = parser.parseFromString(text, "text/xml");
-
+        console.log(xmlDoc);
         let xhr = new XMLHttpRequest();
         xhr.open('GET', 'https://ct.soa-gw.canadapost.ca/rs/ship/price')
         // xhr.open('GET', 'https://soa-gw.canadapost.ca/rs/ship/price')
         xhr.setRequestHeader('Accept', 'application/vnd.cpc.ship.rate-v4+xml');
         xhr.setRequestHeader('Content-Type', 'application/vnd.cpc.ship.rate-v4+xml');
-        xhr.setRequestHeader('Authorization', 'Basic ' + btoa('6e93d53968881714:0bfa9fcb9853d1f51ee57a'));
+        xhr.setRequestHeader('Authorization', 'Basic ' + btoa('ed81d9146e37dc58:f54d3247e07b39d463b2eb'));
         xhr.setRequestHeader('Accept-language', 'en-CA');
-        xhr.
         xhr.send(text);
         // 4. This will be called after the response is received
         xhr.onload = function() {
@@ -72,7 +71,21 @@
         xhr.onerror = function() {
             console.log("Request failed");
         }
-
+        // fetch('https://ct.soa-gw.canadapost.ca/rs/ship/price', {
+        //     method: 'get',
+        //     data: xmlDoc,
+        //     headers: {
+        //         Accept: 'application/vnd.cpc.ship.rate-v4+xml',
+        //         ContentType: 'application/vnd.cpc.ship.rate-v4+xml',
+        //         Authorization: 'Basic ' + btoa('ed81d9146e37dc58:f54d3247e07b39d463b2eb'),
+        //         AcceptLanguage: 'en-CA'
+        //     },
+        // })
+        //     .then(response => response.json()).then(data => {
+        //         console.log(data)
+        // }).catch(error => {
+        //     console.log(error)
+        // })
     });
     function renderOffering(data){
 
