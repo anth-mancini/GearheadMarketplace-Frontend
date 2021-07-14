@@ -74,6 +74,10 @@ header{
 .nav-area a :hover{
     background-color: #000;
 }
+.nav-item{
+    display: flex;
+
+}
 
 /*FOOTER*/
 
@@ -83,6 +87,7 @@ header{
     height: 400px;
     position: relative;
 }
+
 
 .footer .footer-bottom{
     background: #343a40;
@@ -95,7 +100,6 @@ header{
     left: 0px;
     padding-top: 20px;
 }
-
 .footer .footer-content{
     
     height: 350px;
@@ -107,3 +111,17 @@ header{
     border: 1px solid white;
     padding: 25px;
 }
+
+.footer .footer-content .footer-section .links ul a {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    transition: all .3s;
+    background-color: #6a1a21;
+
+
+
+}
+
+
+
