@@ -6,6 +6,7 @@
     <!-- Bootstrap core CSS -->
     <script src="js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -21,10 +22,6 @@
             }
         }
     </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="dashboard.css" rel="stylesheet">
 </head>
 <body>
 
