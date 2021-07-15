@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="css/footer.css">
 <div class="footer">
     <div class="container">
         <div class="row">
@@ -11,7 +12,7 @@
                 <h2>Quick Links</h2>
                 <br>
                 <ul>
-                    <a href="#">
+                    <a href="dashboard.php">
                         <li>Login</li>
                     </a>
                     <a href="mission.php">

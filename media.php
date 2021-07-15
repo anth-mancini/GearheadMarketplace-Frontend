@@ -4,7 +4,6 @@
     <title>Social Media</title>
     <script src="js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/footer.css">
 </head>
 <?php include_once('header.php'); ?>
 <body style="background-color: lightgreen;">
