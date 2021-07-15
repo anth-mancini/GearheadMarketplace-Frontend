@@ -2,48 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> Gear-Head Market Place </title>
-    <link rel="stylesheet" href="css/homepage.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title> Home </title>
+    <script src="js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
-
+<?php include_once('header.php'); ?>
 <body>
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
-
-
-<header>
-    <div class="wrapper">
-        <div class="logo">
-            <img src="assets/images/logo.JPG" alt="">
+<div class="px-4 py-5 my-6 text-center"
+     style="height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('/assets/images/hightech.jpg');">
+    <img class="d-block mx-auto mb-4" src="assets/images/logo1.png" alt="" width="200" height="100">
+    <h1 class="display-5 fw-bold" style="color: white">Gearhead Marketplace</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4" style="color: white">We are the best company in the world</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
+            <button type="button" class="btn btn-danger btn-lg px-4">Secondary</button>
         </div>
-        <ul class="nav-area">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">What We Do</a></li>
-            <li><a href="login.html">Login</a></li>
-        </ul>
-    </div>
-
-    <div class="welcome-text">
-        <h1>Gear-Head Market Place</h1>
-        <a href="#">Contact Us</a>
-    </div>
-</header>
-
-<!--FOOTER-->
-<div class="footer">
-    <div class="footer-content">
-        <div class="footer-section about">
-            <h1 class="logo-text"><span>Gear-Head</span>MarketPlace</h1>
-        </div>
-        <div class="footer-section links"></div>
-        <div class="footer-section contact"></div>
-    </div>
-    <div class="footer-bottom">
-        &copy; gearheadmarketplace.com | Designed by: Team 7
     </div>
 </div>
-
 </body>
+<?php include_once('footer.php'); ?>
 </html>
