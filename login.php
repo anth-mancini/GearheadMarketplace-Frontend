@@ -58,8 +58,8 @@ if (!session_id()) @ session_start();
 <?php include_once('footer.php'); ?>
 </html>
 <script>
-    // let backendURL = 'http://0.0.0.0:8000/';
-    var status;
+     //let backendURL = 'http://0.0.0.0:8000/';
+     var status;
     let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
     // console.log(backendURL)
     $("form#loginTry").submit(function (e) {
