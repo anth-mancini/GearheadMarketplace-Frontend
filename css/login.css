@@ -19,7 +19,7 @@ html,body{
     margin-top: auto;
     margin-bottom: auto;
     width: 400px;
-    background-color: rgba(29, 60, 115 ,0.9) !important;
+    background-color: rgba(29, 60, 115 ,0.9);
 }
 
 .card-header h3{
