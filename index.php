@@ -1,44 +1,26 @@
-<?php
-
-?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title> Home </title>
+    <script src="js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
+<?php include_once('header.php'); ?>
 <body>
-    <h1>stuff here</h1>
-    <p>trying to push an update. checking</p>
-    <button id="someid">Click me!</button>
-    <button id="postid">Post data</button>
+<div class="px-4 py-5 my-6 text-center"
+     style="height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('/assets/images/hightech.jpg');">
+    <img class="d-block mx-auto mb-4" src="assets/images/logo1.png" alt="" width="200" height="100">
+    <h1 class="display-5 fw-bold" style="color: white">Gearhead Marketplace</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4" style="color: white">We are the best company in the world</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
+            <button type="button" class="btn btn-danger btn-lg px-4">Secondary</button>
+        </div>
+    </div>
+</div>
 </body>
+<?php include_once('footer.php'); ?>
 </html>
-
-<script>
-    let myData = {email: "someemail@gmail.com", password: "123456"};
-    $("#someid").on("click", function(){
-        console.log("clicked");
-        $.ajax({
-            type: 'GET',
-            url: 'http://0.0.0.0:8000/users/?skip=0&limit=100',
-            // url: 'https://backend-gearheadmarketplace.herokuapp.com',
-            success: function(data){
-                console.log(data);
-            }
-        })
-    })
-
-    $("#postid").on("click", function(){
-        console.log(JSON.stringify(myData));
-        console.log("clicked");
-        $.ajax({
-            type: 'post',
-            url: 'http://0.0.0.0:8000/users/',
-            // url: 'https://backend-gearheadmarketplace.herokuapp.com',
-            data: JSON.stringify({"email":"someother@gmail.com", "password":"1234566"}),
-            dataType: "json",
-            success: function(data){
-                console.log(data);
-            }
-        })
-    })
-</script>

@@ -1,2 +1,5 @@
-
+.idea
 .idea/dataSources.xml
+.idea/php.xml
+.idea/
+.DS_Store
