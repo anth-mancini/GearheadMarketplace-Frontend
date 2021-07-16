@@ -88,7 +88,7 @@
                 //status = data;
                 if(data !="Username or password is wrong") {
                     console.log(data);
-                    $('#admin').val("true");
+                    $('#admin').val(data);
                     $('form#loginTry').unbind('submit').submit()
                 }
             }
