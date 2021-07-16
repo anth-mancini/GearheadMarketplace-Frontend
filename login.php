@@ -48,7 +48,7 @@ if (!session_id()) @ session_start();
                     Don't have an account?<a href="signup.php">Sign Up</a>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <a href="#">Forgot your password?</a>
+                    <a href="signup.php">Forgot your password?</a>
                 </div>
             </div>
         </div>
