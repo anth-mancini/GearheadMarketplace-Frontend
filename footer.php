@@ -12,7 +12,7 @@
                 <h2>Quick Links</h2>
                 <br>
                 <ul>
-                    <a href="dashboard.php">
+                    <a href="login.php">
                         <li>Login</li>
                     </a>
                     <a href="mission.php">

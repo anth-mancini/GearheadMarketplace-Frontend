@@ -23,6 +23,7 @@
         </div>
     </div>
 </div>
+<?php include_once('user_splash.php'); ?>
 </body>
 <?php include_once('footer.php'); ?>
 </html>
