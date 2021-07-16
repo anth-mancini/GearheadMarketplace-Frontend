@@ -66,7 +66,7 @@
         </div>
     </div>
 </div>
-<?php include_once('user_splash.php'); ?>
+
 </body>
 <link rel="stylesheet" href="css/footer.css">
 <div class="footer">
