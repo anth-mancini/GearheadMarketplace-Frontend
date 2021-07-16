@@ -29,7 +29,7 @@
                         <a class="nav-link active" aria-current="page" href="#">What we do</a>
                     </li>
                 </ul>
-                <a href="dashboard.php">
+                <a href="login.php">
                     <button class="btn btn-primary">Login</button>
                 </a>
             </div>
