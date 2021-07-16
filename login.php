@@ -60,9 +60,9 @@
 </body>
 </html>
 <script>
-     let backendURL = 'http://0.0.0.0:8000/';
+     //let backendURL = 'http://0.0.0.0:8000/';
      var status;
-    //let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
+    let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
     // console.log(backendURL)
     $("form#loginTry").submit(function (e) {
         e.preventDefault();

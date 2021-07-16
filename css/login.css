@@ -1,9 +1,8 @@
-/* Made with love by Mutiullah Samim*/
 
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-    background-image: url('../assets/images/hightech.jpg');
+    background-image: url('../assets/images/IMG_1677.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
@@ -20,7 +19,7 @@ html,body{
     margin-top: auto;
     margin-bottom: auto;
     width: 400px;
-    background-color: rgba(29, 60, 115 ,0.9) !important;
+    background-color: rgba(29, 60, 115 ,0.9);
 }
 
 .card-header h3{
