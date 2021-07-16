@@ -1,4 +1,9 @@
+<?php
+if (!session_id()) @ session_start();
+?>
+
 <link rel="stylesheet" href="css/header.css">
+<script src="js/jquery-3.6.0.min.js"></script>
 <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
@@ -29,9 +34,18 @@
                         <a class="nav-link active" aria-current="page" href="#">What we do</a>
                     </li>
                 </ul>
-                <a href="login.php">
-                    <button class="btn btn-primary">Login</button>
-                </a>
+                <?php if (!isset($_SESSION['userEmail'])) {
+                    echo '<a href="login.php">
+                    <button id="btnLogin" class="btn btn-primary">Login</button>
+                </a>';
+                } else {
+                    echo '<a href="logout.php"><button id="btnLogin" class="btn btn-primary">Logout</button>
+                </a>';
+                }
+                ?>
+                <!--                <a href="login.php">-->
+                <!--                    <button class="btn btn-primary">Login</button>-->
+                <!--                </a>-->
             </div>
         </div>
     </nav>
