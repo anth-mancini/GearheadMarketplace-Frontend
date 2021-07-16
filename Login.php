@@ -1,6 +1,7 @@
 <?php
 
 ?>
+
 <html>
 <head>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -39,17 +40,15 @@
                     </div>
                     <div class="row align-items-center remember">
                         <input type="checkbox">Remember Me
-</div>
+                    </div>
                     <div class="form-group">
-
-                            <input type="submit" value="Login" class="btn float-right login_btn">
-
+                        <input type="submit" value="Login" class="btn float-right login_btn">
                     </div>
                 </form>
             </div>
             <div class="card-footer">
                 <div class="d-flex justify-content-center links">
-Don't have an account?<a href="#">Sign Up</a>
+                    Don't have an account?<a href="#">Sign Up</a>
                 </div>
                 <div class="d-flex justify-content-center">
                     <a href="#">Forgot your password?</a>
@@ -82,17 +81,17 @@ Don't have an account?<a href="#">Sign Up</a>
             data: JSON.stringify(convertedData),
             dataType: "json",
             headers: {
-            'Content-Type': 'application/json',
+                'Content-Type': 'application/json',
                 Accept: 'application/json',
             },
             success: function (data) {
-            //status = data;
-            if(data !="Username or password is wrong") {
-                console.log(data);
-                $('#admin').val(data);
-                $('form#loginTry').unbind('submit').submit()
+                //status = data;
+                if(data !="Username or password is wrong") {
+                    console.log(data);
+                    $('#admin').val(data);
+                    $('form#loginTry').unbind('submit').submit()
                 }
-        }
+            }
         })
     })
-    </script>
+</script>
