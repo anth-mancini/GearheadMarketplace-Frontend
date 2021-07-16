@@ -23,7 +23,7 @@
 
             </div>
             <div class="card-body">
-                <form id="loginTry" method="post" action="loginsplash.php">
+                <form id="loginTry" method="post" action="user_splash.php">
                     <input type="hidden" id="admin" placeholder="false" name="admin" value="false">
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
