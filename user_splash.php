@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+
+?>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -31,7 +35,11 @@
                         <li><a class="dropdown-item" href="">Settings</a></li>
                         <li><a class="dropdown-item" href="">Logout</a></li>
                     </ul>
+
                 </li>
+                <a href="/testForms/offer-form-test.php">
+                    <button class="btn btn-primary" action="">Create Listing</button>
+                </a>
             </div>
         </div>
     </nav>

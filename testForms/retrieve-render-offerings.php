@@ -40,6 +40,7 @@
         $("div#offerings").append('<h3>Price:' + data.price + '</h3>')
         $("div#offerings").append('<h4>Location:' + data.location + '</h4>')
         $("div#offerings").append('<h5>Willing to ship:' + data['shipping_availability'] + '</h5>')
+
         for(let img of data.images){
             console.log(img.link.replace(/\s/g, '+'))
             $("div#offerings").append('<img width = "400px" height="400px" src="' + img.link.replace(/\s/g, '+') + '">')
