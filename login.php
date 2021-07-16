@@ -85,7 +85,13 @@ if (!session_id()) @ session_start();
                 if (data != "Username or password is wrong") {
                     console.log(data);
                     $('#admin').val(data);
-                    $('form#loginTry').unbind('submit').submit();
+                    if(data){
+                        $('form#loginTry').attr('action', 'dashboard.php');
+                        $('form#loginTry').unbind('submit').submit();
+                    }
+                    else {
+                        $('form#loginTry').unbind('submit').submit();
+                    }
                 }
             }
         })
