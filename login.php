@@ -48,7 +48,7 @@
             </div>
             <div class="card-footer">
                 <div class="d-flex justify-content-center links">
-                    Don't have an account?<a href="#">Sign Up</a>
+                    Don't have an account?<a href="signup.php">Sign Up</a>
                 </div>
                 <div class="d-flex justify-content-center">
                     <a href="#">Forgot your password?</a>
@@ -60,9 +60,9 @@
 </body>
 </html>
 <script>
-     let backendURL = 'http://0.0.0.0:8000/';
+     //let backendURL = 'http://0.0.0.0:8000/';
      var status;
-    //let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
+    let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
     // console.log(backendURL)
     $("form#loginTry").submit(function (e) {
         e.preventDefault();
