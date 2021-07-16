@@ -1,5 +1,11 @@
 {
     "require": {
-
+      "ext-json": "*",
+      "ext-curl": "*"
+    },
+    "extra": {
+        "npm": {
+          "xml2json": "0.12.0"
+        }
     }
 }
