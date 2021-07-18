@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title> Home </title>
@@ -8,11 +9,10 @@
 </head>
 <?php include_once('header.php'); ?>
 <body>
-<div class="px-4 py-5 my-6 text-center"
-     style="height: 100vh;
+<div class="px-4 py-5 my-6 text-center img-fluid" style="
+     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/assets/images/IMG_4332.jpeg') fixed center no-repeat;
      background-size: cover;
-     background-repeat: no-repeat;
-      background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('/assets/images/IMG_4332.jpeg')">
+     height: 100vh;">
     <img class="d-block mx-auto mb-4" src="assets/images/logo1.png" alt="" width="200" height="100">
     <h1 class="display-5 fw-bold" style="color: white">Gearhead Marketplace</h1>
     <div class="col-lg-6 mx-auto">
@@ -23,7 +23,7 @@
         </div>
     </div>
 </div>
-<?php include_once('user_splash.php'); ?>
 </body>
 <?php include_once('footer.php'); ?>
+
 </html>

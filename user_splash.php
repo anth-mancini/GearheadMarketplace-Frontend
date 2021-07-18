@@ -39,7 +39,7 @@
     //
     // });
     function renderOffering(data, max) {
-        let maxCols = 5;
+        let maxCols = 6;
         let range = max;
         // x | x | x | x
         if (data.length < max)
@@ -55,7 +55,8 @@
                     // blank image
                     // let imgPortion = '<img id=' + '"tag' + (offerCount + 1) + '" height="200" width="200" src="assets/images/blank.png" onclick="">';
                     //actual image from DB
-                    let imgPortion = '<img id=' + '"tag' + (offerCount + 1) + '" height="200" width="200" src="' + data[offerCount].images[0].link.replace(/\s/g, '+') + '" onclick="">';
+                    let imgPortion = '<img id=' + '"tag' + (offerCount + 1) + '" height="200" width="200" src="' +
+                        data[offerCount].images[0].link.replace(/\s/g, '+') + '" onclick="">';
                     let paraPortion = '<p id="p' + (offerCount + 1) + '">' + data[offerCount].title + '</p>';
                     let closingDivTag = '</div>';
                     buildGrid += divPortion + imgPortion + paraPortion + closingDivTag;
@@ -65,7 +66,6 @@
             buildGrid += '</div>';
         }
         $('#offerings').html(buildGrid);
-
         // Way to do this with static html attr and change specific ids
         // for (let k = 0; k < range; k++) {
         // $('#tag' + (k + 1)).attr("src", data[k].images[0].link.replace(/\s/g, '+'));

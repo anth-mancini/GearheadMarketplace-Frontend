@@ -1,17 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 .card {
-    height: 370px;
-    margin-top: auto;
-    margin-bottom: auto;
+    /*height: 370px;*/
     width: 400px;
+    margin: auto;
+
     background-color: rgba(29, 60, 115, 0.9) !important;
 }
 
 .card-header h3 {
     color: white;
 }
-
 
 .input-group-prepend span {
     width: 50px;

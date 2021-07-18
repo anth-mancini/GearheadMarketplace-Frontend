@@ -9,5 +9,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $_SESSION['isAdmin'] = $_POST['admin'];
     }
 }
-header('Location: /');
+header('Location: /user_splash.php');
 ?>

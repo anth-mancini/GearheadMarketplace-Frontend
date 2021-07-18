@@ -10,46 +10,44 @@ if (!session_id()) @ session_start();
     <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <?php include_once('header.php'); ?>
-<body>
-<div class="container-fluid" style="height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('/assets/images/hightech.jpg');">
-    <div class="d-flex justify-content-center h-100">
-        <div class="card">
-            <div class="card-header">
-                <div style="text-align: center;"><h3>Login</h3></div>
-            </div>
-            <div class="card-body">
-                <form id="loginTry" method="post" action="loginsplash.php">
-                    <input type="hidden" id="admin" placeholder="false" name="admin" value="false">
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><img src="assets/icons/user.svg"></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="email" name="email"/>
+<body style="background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/assets/images/IMG_1626.jpeg') fixed center no-repeat;
+     background-size: cover;">
+<div class="d-flex justify-content-center h-100">
+    <div class="card">
+        <div class="card-header">
+            <div style="text-align: center;"><h3>Login</h3></div>
+        </div>
+        <div class="card-body">
+            <form id="loginTry" method="post" action="loginsplash.php">
+                <input type="hidden" id="admin" placeholder="false" name="admin" value="false">
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><img class="img-fluid" src="assets/icons/user.svg"></span>
                     </div>
-                    </br>
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><img src="assets/icons/key.svg"></span>
-                        </div>
-                        <input type="password" class="form-control" placeholder="password" name="password"/>
-                    </div>
-                    </br>
-                    <div class="row align-items-center remember">
-                        <input type="checkbox">Remember Me
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Login" class="btn float-right login_btn">
-                    </div>
-                </form>
-            </div>
-            <div class="card-footer">
-                <div class="d-flex justify-content-center links">
-                    Don't have an account?<a href="#">Sign Up</a>
+                    <input type="text" class="form-control" placeholder="email" name="email"/>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <a href="#">Forgot your password?</a>
+                </br>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><img class="img-fluid" src="assets/icons/key.svg"></span>
+                    </div>
+                    <input type="password" class="form-control" placeholder="password" name="password"/>
                 </div>
+                </br>
+                <div class="row align-items-center remember">
+                    <input type="checkbox">Remember Me
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn float-right login_btn">
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+            <div class="d-flex justify-content-center links">
+                Don't have an account?<a href="#">Sign Up</a>
+            </div>
+            <div class="d-flex justify-content-center">
+                <a href="#">Forgot your password?</a>
             </div>
         </div>
     </div>
@@ -58,8 +56,8 @@ if (!session_id()) @ session_start();
 <?php include_once('footer.php'); ?>
 </html>
 <script>
-     //let backendURL = 'http://0.0.0.0:8000/';
-     var status;
+    //let backendURL = 'http://0.0.0.0:8000/';
+    var status;
     let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
     // console.log(backendURL)
     $("form#loginTry").submit(function (e) {
