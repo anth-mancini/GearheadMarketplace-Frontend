@@ -54,7 +54,7 @@
      background-size: cover;
      background-repeat: no-repeat;
       background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('/assets/images/IMG_4332.jpeg')">
-    <img class="d-block mx-auto mb-4" src="assets/images/logo1.png" alt="" width="200" height="100">
+    <img class="d-block mx-auto mb-4" src="assets/images/logo1.png" alt="" width="200" height="200">
     <h1 class="display-5 fw-bold" style="color: white">Gearhead Marketplace</h1>
     <div class="col-lg-6 mx-auto">
         <p class="lead mb-4" style="color: white">We are the best company in the world</p>
