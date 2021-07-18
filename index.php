@@ -1,54 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title> Home </title>
     <script src="js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css">
-
-    <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 </head>
-    <link rel="stylesheet" href="css/header.css">
-<header>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">Gearhead Market Place</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            About Us
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="mission.php">Our Mission</a></li>
-                            <li><a class="dropdown-item" href="team.php">Our Team</a></li>
-                            <li><a class="dropdown-item" href="service.php">Our Services</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="media.php">Social Media</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">What we do</a>
-                    </li>
-                </ul>
-                <a href="login.php">
-                    <button class="btn btn-primary">Login</button>
-                </a>
-            </div>
-        </div>
-    </nav>
-</header>
+<?php include_once('header.php'); ?>
 <body>
 <div class="px-4 py-5 my-6 text-center img-fluid" style="
      background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/assets/images/IMG_4332.jpeg') fixed center no-repeat;

@@ -7,14 +7,12 @@ html,body{
     background-repeat: no-repeat;
     height: 100%;
     font-family: 'Numans', sans-serif;
-
 }
 
 .card {
     /*height: 370px;*/
     width: 400px;
     margin: auto;
-
     background-color: rgba(29, 60, 115, 0.9) !important;
 }
 

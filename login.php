@@ -4,13 +4,9 @@
 
 <html>
 <head>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../js/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" type="text/css" href="css/log.css">
 </head>
 <?php include_once('header.php'); ?>
@@ -48,7 +44,7 @@
         </div>
         <div class="card-footer">
             <div class="d-flex justify-content-center links">
-                Don't have an account?<a href="#">Sign Up</a>
+                Don't have an account?<a href="signup.php">Sign Up</a>
             </div>
             <div class="d-flex justify-content-center">
                 <a href="#">Forgot your password?</a>
@@ -57,11 +53,12 @@
     </div>
 </div>
 </body>
+<?php include_once('footer.php'); ?>
 </html>
 <script>
-    //let backendURL = 'http://0.0.0.0:8000/';
+    let backendURL = 'http://0.0.0.0:8000/';
     var status;
-    let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
+    // let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
     // console.log(backendURL)
     $("form#loginTry").submit(function (e) {
         e.preventDefault();
@@ -72,7 +69,6 @@
         for(let f of formData.entries()) {
             convertedData[f[0]] = f[1]
         }
-        // console.log(convertedData);
         $.ajax({
             type: 'post',
             url: backendURL + 'login/',
@@ -86,8 +82,9 @@
             success: function (data) {
                 //status = data;
                 if(data !="Username or password is wrong") {
-                    console.log(data);
-                    $('#admin').val(data);
+                    // Return a dict with user_name, and isAdmin
+                    // console.log(JSON.stringify(data));
+                    $('#admin').val(data['isAdmin']);
                     $('form#loginTry').unbind('submit').submit()
                 }
             }

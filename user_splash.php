@@ -1,66 +1,40 @@
 <?php
 
 ?>
-
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>GearHead Marketplace</title>
     <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="css/user_splash.css">
 </head>
-<link rel="stylesheet" href="css/header.css">
-<header>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">Gearhead Market Place</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                </ul>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Account
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="">Settings</a></li>
-                        <li><a class="dropdown-item" href="">Logout</a></li>
-                    </ul>
-                </li>
-                <a href="/testForms/offer-form-test.php">
-                    <button class="btn btn-primary" action="">Create Listing</button>
-                </a>
-            </div>
-        </div>
-    </nav>
-</header>
+<?php include_once('header.php'); ?>
 <body>
-<div id="offerings">
-    
+<div id="offerings" class="container d-flex align-items-center justify-content-center text-center h-100" style="height: 100vh">
 </div>
 </body>
+<?php include_once('footer.php'); ?>
 </html>
 <script>
     // let backendURL = 'http://0.0.0.0:8000/';
     let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
-    $("button#page1").click(function (e) {
-        e.preventDefault();
+    $(function() {
+        // Handler for .ready() called.
         fetch(backendURL + 'offers/', {
             method: 'get',
         })
             .then(response => response.json()).then(data => {
             console.log(data)
-            renderOffering(data,0,9)
+            renderOffering(data,12)
         }).catch(error => {
             // console.log(error)
         })
+
+    });
+    $("button#page1").click(function (e) {
+        e.preventDefault();
     });
 
     // Do something once the pages are clicked
