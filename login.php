@@ -90,7 +90,7 @@
                     console.log(data);
                     $('#admin').val(data);
                     if(data){
-                        $('form#loginTry').attr('action', 'dashboard.php');
+                        $('form#loginTry').attr('action', 'admin.php');
                         $('form#loginTry').unbind('submit').submit();
                     }
                     else {
