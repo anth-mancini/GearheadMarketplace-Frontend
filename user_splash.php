@@ -1,3 +1,8 @@
+<?php
+
+?>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,30 +11,55 @@
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="css/user_splash.css">
 </head>
-<div id="offerings" class="container-fluid"
-     style="text-align: center; background-color:darkorange">
+<link rel="stylesheet" href="css/header.css">
+<header>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Gearhead Market Place</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Account
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="">Settings</a></li>
+                        <li><a class="dropdown-item" href="">Logout</a></li>
+                    </ul>
+                </li>
+                <a href="/testForms/offer-form-test.php">
+                    <button class="btn btn-primary" action="">Create Listing</button>
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+<body>
+<div id="offerings">
+    
 </div>
-<br>
-<div style="text-align: center">
-    <button class="btn btn-primary" id="page1">1</button>
-    <button class="btn btn-primary" id="page2">2</button>
-    <button class="btn btn-primary" id="page3">3</button>
-    <button class="btn btn-primary" id="page4">4</button>
-    <button class="btn btn-primary" id="page5">5</button>
-</div>
+</body>
 </html>
 <script>
     // let backendURL = 'http://0.0.0.0:8000/';
     let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
-    $(function() {
-        // get data once DOM ready
+    $("button#page1").click(function (e) {
+        e.preventDefault();
         fetch(backendURL + 'offers/', {
             method: 'get',
         })
             .then(response => response.json()).then(data => {
-            renderOffering(data, 12)
+            console.log(data)
+            renderOffering(data,0,9)
         }).catch(error => {
-            console.log(error)
+            // console.log(error)
         })
     });
 
@@ -73,6 +103,3 @@
         // }
     }
 </script>
-
-
-
