@@ -90,6 +90,7 @@ if (!session_id()) @ session_start();
                         $('form#loginTry').unbind('submit').submit();
                     }
                     else {
+                        $('form#loginTry').attr('action', 'user_splash.php');
                         $('form#loginTry').unbind('submit').submit();
                     }
                 }
