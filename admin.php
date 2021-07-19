@@ -1,5 +1,10 @@
 <?php
+if (!session_id()) @ session_start();
+// if user is not allowed on this page, kick them out.
 
+if (empty($_SESSION['isAdmin']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] === false) {
+    echo "<script> window.location.replace('/'); alert('Only Admins are allowed on this page');</script>";
+}
 ?>
 <html lang="en">
 <head>
@@ -58,22 +63,16 @@
                         </a>
                     </button>
                 </ul>
-
             </div>
         </nav>
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Dashboard</h1>
             </div>
-            <iframe src="Login.php" , style="width:100%;height:500%;">            </iframe>
+            <iframe src="Login.php" style="width:100%;height:500%;"></iframe>
     </div>
     </main>
 </div>
 </div>
-<script type="text/javascript">
-    // $(document).on('click', 'ul li', function () {
-    //     $(this).addClass('nav-item').siblings().removeClass('nav-item')
-    // })
-</script>
 </body>
 </html>

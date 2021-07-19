@@ -12,7 +12,7 @@
 <?php include_once('header.php'); ?>
 <body style="background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/assets/images/IMG_1626.jpeg') fixed center no-repeat;
      background-size: cover;">
-<div class="d-flex justify-content-center h-100">
+<div id="loginCard" class="d-flex justify-content-center h-100">
     <div class="card">
         <div class="card-header">
             <div style="text-align: center;"><h3>Login</h3></div>
@@ -56,9 +56,9 @@
 <?php include_once('footer.php'); ?>
 </html>
 <script>
-    let backendURL = 'http://0.0.0.0:8000/';
+    // let backendURL = 'http://0.0.0.0:8000/';
     var status;
-    // let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
+    let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
     // console.log(backendURL)
     $("form#loginTry").submit(function (e) {
         e.preventDefault();
@@ -80,9 +80,8 @@
                 Accept: 'application/json',
             },
             success: function (data) {
-                //status = data;
                 if(data !="Username or password is wrong") {
-                    // Return a dict with user_name, and isAdmin
+                    // Return a dict with user_name, and isAdmin value
                     // console.log(JSON.stringify(data));
                     $('#admin').val(data['isAdmin']);
                     $('form#loginTry').unbind('submit').submit()
