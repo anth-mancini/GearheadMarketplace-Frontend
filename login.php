@@ -1,5 +1,10 @@
 <?php
+if (!session_id()) @ session_start();
+// if user is not allowed on this page, kick them out.
 
+if (!empty($_SESSION['isAdmin']) || isset($_SESSION['isAdmin'])) {
+    echo "<script> window.location.replace('/'); alert('Already logged in');</script>";
+}
 ?>
 
 <html>
