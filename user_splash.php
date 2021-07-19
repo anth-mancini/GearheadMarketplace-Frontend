@@ -12,7 +12,8 @@
 </head>
 <?php include_once('header.php'); ?>
 <body>
-<div id="offerings" class="container d-flex align-items-center justify-content-center text-center h-100" style="height: 100vh">
+<div id="offerings" class="container d-flex align-items-center justify-content-center text-center h-100"
+     style="height: 100vh">
 </div>
 </body>
 <?php include_once('footer.php'); ?>
@@ -20,14 +21,13 @@
 <script>
     // let backendURL = 'http://0.0.0.0:8000/';
     let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
-    $(function() {
+    $(function () {
         // Handler for .ready() called.
         fetch(backendURL + 'offers/', {
             method: 'get',
         })
             .then(response => response.json()).then(data => {
-            console.log(data)
-            renderOffering(data,12)
+            renderOffering(data, 12);
         }).catch(error => {
             // console.log(error)
         })
@@ -37,43 +37,67 @@
         e.preventDefault();
     });
 
-    // Do something once the pages are clicked
-    // $("button#page1").click(function (e) {
-    //     e.preventDefault();
-    //
-    // });
+    /// Render offering
+    // This code needs to be expanded to support pagintion (pages)
+    // or scrolling to view more listings and clicking on listings to view them
+    // Renders the first x listings in the data set.
+    // If max is set to 12, then it will be the first 12.
+    // There is some logic to lay out listings "nicely"
+    // For example, if we have only 3 listings, then we would render only one row
+    // if we have >6 listings than we'd render two
     function renderOffering(data, max) {
+
+        // Max 6 listings in a row
+        // x | x | x | x | x | x
         let maxCols = 6;
-        let range = max;
-        // x | x | x | x
+        let range = max; // set the range to max
+
+        //if we have less offerings than our max, then set our range to that
         if (data.length < max)
             range = data.length;
+
+        // get the number of rows we're going to need
         let numRows = Math.ceil(range / maxCols);
+
+        // tracker to make sure we don't go over the actual number of offerings
+        // can overshoot with current row/col logic
         let offerCount = 0;
+
+        //Our final HTML grid to be added to some div later
         let buildGrid = '';
         for (let j = 0; j < numRows; j++) {
-            buildGrid += '<div id="row' + (j + 1) + '" class="row">'
+
+            //open a new row
+            buildGrid += '<div id="row' + (j + 1) + '" class="row" style="background: darkorange;">'
             for (let k = 0; k < maxCols; k++) {
+                // if we havent rendered our range, add more offerings
                 if (offerCount < range) {
-                    let divPortion = '<div class="col">';
-                    // blank image
+                    // open a new col
+                    let divPortion = '<div class="col" style="">';
+
+                    // (legacy) blank image
                     // let imgPortion = '<img id=' + '"tag' + (offerCount + 1) + '" height="200" width="200" src="assets/images/blank.png" onclick="">';
-                    //actual image from DB
+
+                    // Add image from database to an img tag
                     let imgPortion = '<img id=' + '"tag' + (offerCount + 1) + '" height="200" width="200" src="' +
                         data[offerCount].images[0].link.replace(/\s/g, '+') + '" onclick="">';
+
+                    // add a p tag with the offering title
                     let paraPortion = '<p id="p' + (offerCount + 1) + '">' + data[offerCount].title + '</p>';
-                    let closingDivTag = '</div>';
+                    let closingDivTag = '</div>'; // close out the column
+                    // add all tags to the overall grid
                     buildGrid += divPortion + imgPortion + paraPortion + closingDivTag;
                     offerCount++;
+                } else {
+                    // if we've reached our limit then we can put our loops out of range and move on
+                    k = maxCols;
+                    j = numRows;
                 }
             }
+            // close out the row
             buildGrid += '</div>';
         }
+        // add it all to the div with the offerings ID
         $('#offerings').html(buildGrid);
-        // Way to do this with static html attr and change specific ids
-        // for (let k = 0; k < range; k++) {
-        // $('#tag' + (k + 1)).attr("src", data[k].images[0].link.replace(/\s/g, '+'));
-        // $('#p' + (k + 1)).text(data[k].title)
-        // }
     }
 </script>
