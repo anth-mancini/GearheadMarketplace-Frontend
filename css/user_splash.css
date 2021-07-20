@@ -1,10 +1,7 @@
 table, th, td
 {
-<<<<<<< Updated upstream
-    border: 1px solid black;
-=======
+
     border: 5px solid black;
-    border
 }
 
 html,body{
@@ -13,5 +10,4 @@ html,body{
     background-repeat: no-repeat;
     height: 100%;
     font-family: 'Numans', sans-serif;
->>>>>>> Stashed changes
 }
