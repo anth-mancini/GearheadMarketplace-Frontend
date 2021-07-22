@@ -33,7 +33,7 @@ if (empty($_SESSION['isAdmin']) || !isset($_SESSION['isAdmin']) || $_SESSION['is
 </head>
 <?php include_once('header.php') ?>
 <body>
-<div class="container-fluid">
+<div class="container-fluid" style="padding-top: 60px">
     <div class="row">
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
             <div class="position-sticky pt-3">
@@ -69,10 +69,8 @@ if (empty($_SESSION['isAdmin']) || !isset($_SESSION['isAdmin']) || $_SESSION['is
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Dashboard</h1>
             </div>
-            <iframe src="Login.php" style="width:100%;height:500%;"></iframe>
+        </main>
     </div>
-    </main>
-</div>
 </div>
 </body>
 </html>
