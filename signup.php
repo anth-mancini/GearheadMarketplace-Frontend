@@ -21,17 +21,18 @@
             <form id="addUser" method="post">
                 <div class="mb-3">
                     <label class="form-label">User Name</label>
-                    <input class="form-control" type="text" name="user_name"/>
+                    <input class="form-control" type="text" required pattern="[a-zA-Z0-9.-_]{1,}" oninvalid="this.setCustomValidity('Has to be more than 1 character')" oninput="this.setCustomValidity('')" name="user_name"/>
                     <div class="form-text">MUST HAVE A VALUE</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input class="form-control" type="text" name="email"/>
+                    <input class="form-control" type="text" required pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[com]{2,}" oninvalid="this.setCustomValidity('must be in email format with a @ and .com')"
+                           oninput="this.setCustomValidity('')"  name="email"/>
                     <div class="form-text">MUST HAVE A VALUE</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Password</label>
-                    <input class="form-control" type="password" name="password"/>
+                    <input class="form-control" type="password" required pattern="(?=.*[!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?])(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" oninvalid="this.setCustomValidity('must be atleast 8 chars with atleast 1 upercase 1 lowercase 1 number and 1 special char')"name="password"/>
                     <div class="form-text">MUST HAVE A VALUE</div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
