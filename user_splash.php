@@ -19,19 +19,19 @@
 <?php include_once('footer.php'); ?>
 </html>
 <script>
-    // let backendURL = 'http://0.0.0.0:8000/';
-    let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
+    let backendURL = 'http://0.0.0.0:8000/';
+    // let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
     $(function () {
         // Handler for .ready() called.
         fetch(backendURL + 'offers/', {
             method: 'get',
         })
             .then(response => response.json()).then(data => {
+            console.log(data);
             renderOffering(data, 12);
         }).catch(error => {
-            // console.log(error)
+            console.log(error);
         })
-
     });
     $("button#page1").click(function (e) {
         e.preventDefault();
@@ -46,7 +46,6 @@
     // For example, if we have only 3 listings, then we would render only one row
     // if we have >6 listings than we'd render two
     function renderOffering(data, max) {
-
         // Max 6 listings in a row
         // x | x | x | x | x | x
         let maxCols = 6;
@@ -77,10 +76,12 @@
 
                     // (legacy) blank image
                     // let imgPortion = '<img id=' + '"tag' + (offerCount + 1) + '" height="200" width="200" src="assets/images/blank.png" onclick="">';
-
+                    let imgPortion = "";
                     // Add image from database to an img tag
-                    let imgPortion = '<img id=' + '"tag' + (offerCount + 1) + '" height="200" width="200" src="' +
-                        data[offerCount].images[0].link.replace(/\s/g, '+') + '" onclick="">';
+                    if (data[offerCount].images.length > 0) {
+                        imgPortion = '<img id=' + '"tag' + (offerCount + 1) + '" height="200" width="200" src="' +
+                            data[offerCount].images[0].link.replace(/\s/g, '+') + '" onclick="">';
+                    }
 
                     // add a p tag with the offering title
                     let paraPortion = '<p id="p' + (offerCount + 1) + '">' + data[offerCount].title + '</p>';

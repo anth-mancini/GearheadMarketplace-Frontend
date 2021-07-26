@@ -83,8 +83,8 @@
             .then(response => response.json()).then(data => {
             renderTable(data);
         }).catch(error => {
-
         })
+
     });
 
     function renderTable(data) {

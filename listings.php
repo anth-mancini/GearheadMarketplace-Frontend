@@ -76,7 +76,7 @@
             <form id="editOffer" style="display: none" method="post">
                 <div class="mb-3">
                     <label class="form-label">Offer ID</label>
-                    <input id="offerID" class="form-control" type="text" name="user_id"/>
+                    <input id="offerID" class="form-control" type="text" readonly name="offer_id" />
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Title of Offer</label>
@@ -97,7 +97,7 @@
                 </div>
                 <!--    might add this for is avaialbe to ship-->
                 <div class="mb-3 form-check">
-                    <input name="shipping_availability" type="checkbox" class="form-check-input">
+                    <input id="shippingCheck" name="shipping_availability" type="checkbox" class="form-check-input">
                     <label class="form-check-label" for="exampleCheck1">Check if you are willing to ship the
                         item</label>
                 </div>
@@ -144,8 +144,12 @@
             // console.log(event.target.id)
             editListing(event.target.id);
         });
+        $(document).on("click", "a.remove", function (event) {
+            // $(this).parent().remove();
+            // console.log(event.target.id)
+            removeListing(event.target.id);
+        });
     });
-
     function renderTable(data) {
         // ID, User, Title, Edit/Remove
         // console.log(data);
@@ -155,7 +159,8 @@
             tableHTML += "<td>" + data[k].id + "</td>"
             tableHTML += "<td>" + data[k].owner_id + "</td>"
             tableHTML += "<td>" + data[k].title + "</td>"
-            tableHTML += "<td>" + "<a id=" + data[k].id + " href='javascript:void(0);' class='edit'>Edit</a>/Remove" + "</td>"
+            tableHTML += "<td>" + "<a id=" + data[k].id + " href='javascript:void(0);' class='edit'>Edit</a>" + "/";
+            tableHTML += "<a id=" + data[k].id + " href='javascript:void(0);' class='remove'>Remove</a>" + "</td>"
             tableHTML += "</tr>"
         }
         $('#adminOfferView tbody').html(tableHTML);
@@ -167,11 +172,59 @@
             method: 'get',
         })
             .then(response => response.json()).then(data => {
+            // console.log(data);
             populateForm(data);
         }).catch(error => {
 
         })
     }
+    function removeListing(id) {
+        // $("#editOffer").show();
+        fetch(backendURL + 'offers/' + id, {
+            method: 'delete',
+        })
+            .then(response => response.json()).then(data => {
+            console.log(data);
+            // populateForm(data);
+        }).catch(error => {
+
+        })
+    }
+
+    $("form#editOffer").submit(function (e) {
+        e.preventDefault();
+        // IMPORTANT the names (name="") of the form fields must match the backend.
+        // Review the expected names by visiting the backendURL/docs
+        let formData = new FormData(this)
+        let shippingFlag = true;
+        for (let f of formData.entries()) {
+            if (f[0] === 'shipping_availability') {
+                shippingFlag = false;
+            }
+        }
+        formData.set('shipping_availability', 'true')
+        if (shippingFlag) {
+            formData.set('shipping_availability', 'false')
+        }
+        // for (let f of formData.entries()) {
+        //     console.log(f)
+        // }
+        fetch(backendURL + 'offers/' + formData.get('offer_id'), {
+            method: 'post',
+            body: formData,
+            enctype: 'multipart/form-data',
+            dataType: 'json',
+            headers: {
+                Accept: 'application/json',
+            },
+            processData: false,
+        })
+            .then(response => response.json()).then(data => {
+            alert(JSON.stringify(data))
+        }).catch(error => {
+            // console.log(error)
+        })
+    });
 
     function populateForm(data) {
         $("#offerID").val(data.id);
@@ -179,6 +232,7 @@
         $("#offerDes").val(data.description);
         $("#offerPrice").val(data.price);
         $("#offerLoc").val(data.location);
+        $("#shippingCheck").prop('checked', data['shipping_availability']);
     }
 
     function changeFormVis() {
@@ -193,5 +247,6 @@
         $("#offerDes").val("");
         $("#offerPrice").val("");
         $("#offerLoc").val("");
+        $("#shippingCheck").prop('checked', false);
     })
 </script>
