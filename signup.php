@@ -58,7 +58,6 @@
         $.ajax({
             type: 'post',
             url: backendURL + 'users/',
-            // url: 'https://backend-gearheadmarketplace.herokuapp.com',
             data: JSON.stringify(convertedData),
             dataType: "json",
             headers: {

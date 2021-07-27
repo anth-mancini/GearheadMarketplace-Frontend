@@ -107,8 +107,8 @@
 </div>
 
 <script type="text/javascript">
-    let backendURL = 'http://0.0.0.0:8000/';
-    // let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
+    // let backendURL = 'http://0.0.0.0:8000/';
+    let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
     $(function () {
         fetch(backendURL + 'users/', {
             method: 'get',

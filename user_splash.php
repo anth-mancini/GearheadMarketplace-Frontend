@@ -19,8 +19,8 @@
 <?php include_once('footer.php'); ?>
 </html>
 <script>
-    let backendURL = 'http://0.0.0.0:8000/';
-    // let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
+    // let backendURL = 'http://0.0.0.0:8000/';
+    let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
     $(function () {
         // Handler for .ready() called.
         fetch(backendURL + 'offers/', {

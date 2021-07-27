@@ -127,8 +127,8 @@
 </html>
 
 <script>
-    let backendURL = 'http://0.0.0.0:8000/';
-    // let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
+    // let backendURL = 'http://0.0.0.0:8000/';
+    let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
     $(function () {
         fetch(backendURL + 'offers/', {
             method: 'get',
@@ -240,7 +240,6 @@
         $("#offerLoc").val(data.location);
         $("#shippingCheck").prop('checked', data['shipping_availability']);
     }
-
     function changeFormVis() {
         $("#editOffer").toggle();
     }
