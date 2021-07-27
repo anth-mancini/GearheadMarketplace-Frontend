@@ -14,33 +14,33 @@
 <form id="addOffer" method="post">
     <div class="mb-3">
         <label class="form-label">User ID</label>
-        <input class="form-control" type="text" name="user_id"/>
+        <input class="form-control" type="text" name="user_id" required/>
         <div class="form-text">This ID actually needs to be supplied via PHP/JQuery</div>
     </div>
     <div class="mb-3">
         <label class="form-label">Title of Offer</label>
-        <input class="form-control" type="text" name="title"/>
+        <input class="form-control" type="text" name="title" required/>
     </div>
     <div class="mb-3">
         <label class="form-label">Offer Description</label>
-        <input class="form-control" type="text" name="description"/>
+        <input class="form-control" type="text" name="description" required/>
     </div>
     <div class="mb-3">
         <label class="form-label">Price</label>
-        <input class="form-control" type="text" name="price"/>
+        <input class="form-control" type="text" name="price" required/>
         <div class="form-text">Must be a float</div>
     </div>
     <div class="mb-3">
         <label class="form-label">Location</label>
-        <input class="form-control" type="text" name="location"/>
+        <input class="form-control" type="text" name="location" required/>
     </div>
     <!--    might add this for is avaialbe to ship-->
     <div class="mb-3 form-check">
-        <input name="shipping_availability" type="checkbox" class="form-check-input">
+        <input name="shipping_availability" type="checkbox" class="form-check-input" required>
         <label class="form-check-label" for="exampleCheck1">Check if you are willing to ship the item</label>
     </div>
     <div class="mb-3">
-        <input name="file" class="form-control" type="file"/>
+        <input name="file" class="form-control" type="file" required/>
         <div class="form-text">Currently supports only one image</div>
     </div>
     <button class="btn btn-primary">Submit</button>
