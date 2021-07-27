@@ -1,3 +1,4 @@
+
 <?php
 
 ?>
@@ -124,6 +125,7 @@
                 </div>
                 <div class="col">
                     <div class="card mb-4 rounded-3 shadow-sm">
+
                         <div class="card-body">
                             <a href="lighttheme.php">
                                 <button type="button" class="w-100 btn btn-lg btn-outline-primary">Light Theme</button>
@@ -144,7 +146,7 @@
 
 
         </main>
-</div>
+    </div>
 </div>
 
 <script type="text/javascript">
