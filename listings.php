@@ -124,7 +124,6 @@
     </div>
 </div>
 </body>
-
 </html>
 
 <script>
@@ -160,7 +159,7 @@
             tableHTML += "<td>" + data[k].owner_id + "</td>"
             tableHTML += "<td>" + data[k].title + "</td>"
             tableHTML += "<td>" + "<a id=" + data[k].id + " href='javascript:void(0);' class='edit'>Edit</a>" + "/";
-            tableHTML += "<a id=" + data[k].id + " href='javascript:void(0);' class='remove'>Remove</a>" + "</td>"
+            tableHTML += "<a id=" + data[k].id + " href='javascript:void(0);' class='remove'>Remove</a>" + "</td>";
             tableHTML += "</tr>"
         }
         $('#adminOfferView tbody').html(tableHTML);
@@ -221,6 +220,13 @@
         })
             .then(response => response.json()).then(data => {
             alert(JSON.stringify(data))
+            $("#editOffer").hide();
+            $("#offerID").val("");
+            $("#offerTitle").val("");r
+            $("#offerDes").val("");
+            $("#offerPrice").val("");
+            $("#offerLoc").val("");
+            $("#shippingCheck").prop('checked', false);
         }).catch(error => {
             // console.log(error)
         })
@@ -238,15 +244,4 @@
     function changeFormVis() {
         $("#editOffer").toggle();
     }
-
-    $("form#editOffer").submit(function (e) {
-        e.preventDefault();
-        $("#editOffer").hide();
-        $("#offerID").val("");
-        $("#offerTitle").val("");
-        $("#offerDes").val("");
-        $("#offerPrice").val("");
-        $("#offerLoc").val("");
-        $("#shippingCheck").prop('checked', false);
-    })
 </script>
