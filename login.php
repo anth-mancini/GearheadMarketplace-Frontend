@@ -25,6 +25,7 @@ if (!empty($_SESSION['isAdmin']) || isset($_SESSION['isAdmin'])) {
         <div class="card-body">
             <form id="loginTry" method="post" action="loginsplash.php">
                 <input type="hidden" id="admin" placeholder="false" name="admin" value="false">
+                <input type="hidden" id="userID" placeholder="false" name="userID" value="">
                 <div class="input-group form-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><img class="img-fluid" src="assets/icons/user.svg"></span>
@@ -89,6 +90,7 @@ if (!empty($_SESSION['isAdmin']) || isset($_SESSION['isAdmin'])) {
                     // Return a dict with user_name, and isAdmin value
                     // console.log(JSON.stringify(data));
                     $('#admin').val(data['isAdmin']);
+                    $('#userID').val(data['userID']);
                     $('form#loginTry').unbind('submit').submit()
                 }
             }

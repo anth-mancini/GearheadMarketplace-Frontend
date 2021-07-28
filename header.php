@@ -29,7 +29,7 @@ if (!session_id()) @ session_start();
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">What we do</a>
+                        <a class="nav-link active" aria-current="page" href="canadapost_quote.php">Shipping Quotes</a>
                     </li>
                 </ul>
                 <?php if (!isset($_SESSION['userEmail'])) {
