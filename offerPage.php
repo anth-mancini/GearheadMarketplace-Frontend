@@ -48,7 +48,7 @@ if(isset($_POST['offerID'])) {
     <div class="shadow-lg p-3 mb-5 bg-dark rounded">
         <div class="w-auto p-3" style="background-color: #0d6efd;">
             <center>
-                <button type="button" class="btn btn-warning">Contact Seller</button>
+                <button type="button" onclick="mailSeller();"class="btn btn-warning">Contact Seller</button>
                 <button type="button" onclick="window.location.href='canadapost_quote.php'" class="btn btn-warning">Shipping Qoute</button>
             </center>
         </div>
@@ -62,6 +62,8 @@ if(isset($_POST['offerID'])) {
     let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
 
     let temp  = <?php echo htmlentities($itemID); ?>  ;
+    let posterId = "";
+    let mailAddress = "";
     console.log(temp);
     //$(document).ready(function() {
 
@@ -77,10 +79,28 @@ if(isset($_POST['offerID'])) {
             // console.log(data)
             // console.log(data[0])
             renderOffering(data)
+            posterId = data.owner_id;
+            console.log(posterId);
         }).catch(error => {
             // console.log(error)
         })
     });
+    function mailSeller() {
+        console.log( "ready!" );
+        //e.preventDefault();
+        fetch(backendURL + 'users/' + posterId, {
+            method: 'get',
+        })
+            .then(response => response.json()).then(data => {
+            // console.log(data)
+            // console.log(data[0])
+            mailAddress = data.email;
+            console.log(mailAddress);
+            window.location.href = "mailto:" + mailAddress +"?subject=Gearhead%20Marketplace%20Listing%20Inquiry&body=Type%20message%20here";
+        }).catch(error => {
+            // console.log(error)
+        })
+    }
 
     function renderOffering(data){
 
