@@ -49,7 +49,7 @@ if(isset($_POST['offerID'])) {
         <div class="w-auto p-3" style="background-color: #0d6efd;">
             <center>
                 <button type="button" onclick="mailSeller();"class="btn btn-warning">Contact Seller</button>
-                <button type="button" onclick="window.location.href='canadapost_quote.php'" class="btn btn-warning">Shipping Qoute</button>
+                <button type="button" onclick="window.location.href='canadapost_quote.php'" class="btn btn-warning">Shipping Quote</button>
             </center>
         </div>
     </div>
