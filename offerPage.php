@@ -64,11 +64,9 @@ if(isset($_POST['offerID'])) {
     let temp  = <?php echo htmlentities($itemID); ?>  ;
     let posterId = "";
     let mailAddress = "";
+    let offerName = "";
     console.log(temp);
-    //$(document).ready(function() {
-
-    //$("form#addOffer").submit(function (e) {
-    //$( window ).load(function() {
+    
     $(function () {
         console.log( "ready!" );
         //e.preventDefault();
@@ -80,6 +78,7 @@ if(isset($_POST['offerID'])) {
             // console.log(data[0])
             renderOffering(data)
             posterId = data.owner_id;
+            offerName = data.title;
             console.log(posterId);
         }).catch(error => {
             // console.log(error)
@@ -96,15 +95,13 @@ if(isset($_POST['offerID'])) {
             // console.log(data[0])
             mailAddress = data.email;
             console.log(mailAddress);
-            window.location.href = "mailto:" + mailAddress +"?subject=Gearhead%20Marketplace%20Listing%20Inquiry&body=Type%20message%20here";
+            window.location.href = "mailto:" + mailAddress +"?subject=Gearhead%20Marketplace%20Listing%20Inquiry%20-%20" + offerName +"&body=Type%20message%20here";
         }).catch(error => {
             // console.log(error)
         })
     }
 
     function renderOffering(data){
-
-        //$("#tag1").attr("src", "https://gearhead-images.s3.amazonaws.com/images/Screen Shot 2021-06-28 at 3.20.56 PM.png")
 
         $("h1#title").append(data.title)
         $("h2#location").append(data.location)
@@ -116,10 +113,7 @@ if(isset($_POST['offerID'])) {
         else{
             $("h4#ship").append("No")
         }
-
         $("h5#price").append(data.price)
-        //$("img#item").attr("src", data.images[0].link)
-        //console.log(data.images[0].link)
         document.getElementById("item").src = data.images[0].link;
     }
 
