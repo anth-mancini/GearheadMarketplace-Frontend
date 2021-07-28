@@ -24,7 +24,7 @@ if (!empty($_SESSION['isAdmin']) || isset($_SESSION['isAdmin'])) {
         </div>
         <div class="card-body">
             <form id="loginTry" method="post" action="loginsplash.php">
-                <input type="hidden" id="admin" placeholder="false" name="admin" value="false">
+                <input type="hidden" id="admin" placeholder="false" name="admin" value="false" required>
                 <div class="input-group form-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><img class="img-fluid" src="assets/icons/user.svg"></span>
@@ -36,7 +36,7 @@ if (!empty($_SESSION['isAdmin']) || isset($_SESSION['isAdmin'])) {
                     <div class="input-group-prepend">
                         <span class="input-group-text"><img class="img-fluid" src="assets/icons/key.svg"></span>
                     </div>
-                    <input type="password" class="form-control" placeholder="password" name="password"/>
+                    <input type="password" class="form-control" placeholder="password" name="password" required/>
                 </div>
                 </br>
                 <div class="row align-items-center remember">
