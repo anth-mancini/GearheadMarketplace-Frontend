@@ -62,38 +62,38 @@ if (!empty($_SESSION['isAdmin']) || isset($_SESSION['isAdmin'])) {
 <?php include_once('footer.php'); ?>
 </html>
 <script>
-    // let backendURL = 'http://0.0.0.0:8000/';
     var status;
     let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
-    // console.log(backendURL)
-    $("form#loginTry").submit(function (e) {
-        e.preventDefault();
-        let formData = new FormData(this)
-        var convertedData = {}
-        //building a compatible data object for our post request
-        //{key: value, key: value}
-        for(let f of formData.entries()) {
-            convertedData[f[0]] = f[1]
-        }
-        $.ajax({
-            type: 'post',
-            url: backendURL + 'login/',
-            // url: 'https://backend-gearheadmarketplace.herokuapp.com',
-            data: JSON.stringify(convertedData),
-            dataType: "json",
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            success: function (data) {
-                if(data !="Username or password is wrong") {
-                    // Return a dict with user_name, and isAdmin value
-                    // console.log(JSON.stringify(data));
-                    $('#admin').val(data['isAdmin']);
-                    $('#userID').val(data['userID']);
-                    $('form#loginTry').unbind('submit').submit()
-                }
+    $(function () {
+        $("form#loginTry").submit(function (e) {
+            e.preventDefault();
+            let formData = new FormData(this)
+            var convertedData = {}
+            //building a compatible data object for our post request
+            //{key: value, key: value}
+            for(let f of formData.entries()) {
+                convertedData[f[0]] = f[1]
             }
+            $.ajax({
+                type: 'post',
+                url: backendURL + 'login/',
+                // url: 'https://backend-gearheadmarketplace.herokuapp.com',
+                data: JSON.stringify(convertedData),
+                dataType: "json",
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                success: function (data) {
+                    if(data !="Username or password is wrong") {
+                        // Return a dict with user_name, and isAdmin value
+                        // console.log(JSON.stringify(data));
+                        $('#admin').val(data['isAdmin']);
+                        $('#userID').val(data['userID']);
+                        $('form#loginTry').unbind('submit').submit()
+                    }
+                }
+            })
         })
-    })
+    });
 </script>
