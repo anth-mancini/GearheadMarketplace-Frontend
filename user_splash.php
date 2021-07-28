@@ -12,8 +12,9 @@
 </head>
 <?php include_once('header.php'); ?>
 <body>
-<div id="offerings" class="container d-flex align-items-center justify-content-center text-center h-100"
-     style="height: 100vh">
+<div id="offerings" class="container fluid"
+     style="background: darkorange; margin-top: 70px; margin-bottom: 70px">
+    <h1>Loading...</h1>
 </div>
 </body>
 <?php include_once('footer.php'); ?>
@@ -57,7 +58,6 @@
 
         // get the number of rows we're going to need
         let numRows = Math.ceil(range / maxCols);
-
         // tracker to make sure we don't go over the actual number of offerings
         // can overshoot with current row/col logic
         let offerCount = 0;
@@ -65,14 +65,13 @@
         //Our final HTML grid to be added to some div later
         let buildGrid = '';
         for (let j = 0; j < numRows; j++) {
-
             //open a new row
-            buildGrid += '<div id="row' + (j + 1) + '" class="row" style="background: darkorange;">'
+            buildGrid += '<div id="row' + (j + 1) + '" class="row">'
             for (let k = 0; k < maxCols; k++) {
                 // if we havent rendered our range, add more offerings
-                if (offerCount < range) {
+                if (offerCount++ < range) {
                     // open a new col
-                    let divPortion = '<div class="col" style="">';
+                    let divPortion = '<div class="col" style="padding: 5px;">';
 
                     // (legacy) blank image
                     // let imgPortion = '<img id=' + '"tag' + (offerCount + 1) + '" height="200" width="200" src="assets/images/blank.png" onclick="">';
@@ -80,15 +79,16 @@
                     // Add image from database to an img tag
                     if (data[offerCount].images.length > 0) {
                         imgPortion = '<img id=' + '"tag' + (offerCount + 1) + '" height="200" width="200" src="' +
-                            data[offerCount].images[0].link.replace(/\s/g, '+') + '" onclick="">';
+                            data[offerCount].images[0].link.replace(/\s/g, '+') + '">';
                     }
 
                     // add a p tag with the offering title
                     let paraPortion = '<p id="p' + (offerCount + 1) + '">' + data[offerCount].title + '</p>';
+
                     let closingDivTag = '</div>'; // close out the column
                     // add all tags to the overall grid
                     buildGrid += divPortion + imgPortion + paraPortion + closingDivTag;
-                    offerCount++;
+                    // offerCount++;
                 } else {
                     // if we've reached our limit then we can put our loops out of range and move on
                     k = maxCols;
@@ -98,6 +98,7 @@
             // close out the row
             buildGrid += '</div>';
         }
+        console.log(buildGrid);
         // add it all to the div with the offerings ID
         $('#offerings').html(buildGrid);
     }

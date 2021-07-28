@@ -200,7 +200,7 @@
                 alert(JSON.stringify(data))
                 location.reload();
 
-                //not needed since we're reloading the page to reflect most
+                // not needed since we're reloading the page to reflect most
                 // up to date info
                 // $("#editUser").hide();
                 // $("#offerID").val("");
