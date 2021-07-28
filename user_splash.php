@@ -46,6 +46,8 @@
         //console.log(event.target.id)
         openOffer(event.target.id);
         alert(event.target.id);
+        //console.log(event.target.id);
+        //alert(event.target);
     });
 
 
@@ -101,9 +103,7 @@
                         // imgPortion = '<img id=' + '"tag' + (offerCount + 1) + '" height="200" width="200" src="' +
                         //     data[offerCount].images[0].link.replace(/\s/g, '+') + '" onclick="openOffer(data,offerCount)"  >';
                         imgPortion = '<img class="offering" id=' + '"' + data.offer_id + '" height="200" width="200" src="' +
-                            data[offerCount].images[0].link.replace(/\s/g, '+') + '" onclick="">';
-
-
+                            data[offerCount].images[0].link.replace(/\s/g, '+') + '" >';
                     }
 
                     // document.getElementById('offerID').submit(); "
