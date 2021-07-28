@@ -91,7 +91,7 @@ if (empty($_SESSION['isAdmin']) || !isset($_SESSION['isAdmin']) || $_SESSION['is
         renderTable();
     })
     function renderTable() {
-        let services = ['PHP', 'FastAPI-Backend', 'Database', 'AWS S3'];
+        let services = ['PHP-Frontend', 'FastAPI-Backend', 'Heroku PostgresQL-Database', 'AWS S3 Buckets'];
         let tableHTML = "";
         for (let k = 0; k < services.length; k++) {
             tableHTML += "<tr>";
