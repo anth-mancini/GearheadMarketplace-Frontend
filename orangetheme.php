@@ -1,6 +1,3 @@
-<?php
-
-?>
 
 <?php
 
@@ -15,6 +12,7 @@
     <!-- Bootstrap core CSS -->
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="pricing.css" rel="stylesheet">
+
 
     <style>
         .bd-placeholder-img {
@@ -36,6 +34,7 @@
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/orangetheme.css" rel="stylesheet">
 
     <style>
         .bd-placeholder-img {
@@ -76,7 +75,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
             <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
                     <button class="nav-item", id="button1">
@@ -108,13 +107,13 @@
             </div>
         </nav>
 
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 border-dark">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
                 <h1 class="h2">Themes</h1>
             </div>
             <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
                 <div class="col">
-                    <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card mb-4 rounded-3 border-dark">
                         <div class="card-body">
                             <a href="darktheme.php">
                                 <button type="button" class="w-100 btn btn-lg btn-outline-primary">Dark Theme</button>
@@ -123,7 +122,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card mb-4 rounded-3 border-dark">
                         <div class="card-body">
                             <a href="lighttheme.php">
                                 <button type="button" class="w-100 btn btn-lg btn-outline-primary">Light Theme</button>
@@ -132,7 +131,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card mb-4 rounded-3 border-dark">
                         <div class="card-body">
                             <a href="orangetheme.php">
                                 <button type="button" class="w-100 btn btn-lg btn-outline-primary">Orange Theme</button>
