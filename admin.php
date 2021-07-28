@@ -69,8 +69,36 @@ if (empty($_SESSION['isAdmin']) || !isset($_SESSION['isAdmin']) || $_SESSION['is
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Dashboard</h1>
             </div>
+            <div>
+                <table id="monitoringTable" class="table table-sm">
+                    <thead>
+                    <tr>
+                        <th scope="col">Service</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </main>
     </div>
 </div>
 </body>
 </html>
+<script>
+    $(function () {
+        renderTable();
+    })
+    function renderTable() {
+        let services = ['PHP', 'FastAPI-Backend', 'Database', 'AWS S3'];
+        let tableHTML = "";
+        for (let k = 0; k < services.length; k++) {
+            tableHTML += "<tr>";
+            tableHTML += "<td>" + services[k] + "</td>"
+            tableHTML += "<td>" + "OK" + "</td>"
+            tableHTML += "</tr>"
+        }
+        $('#monitoringTable tbody').html(tableHTML);
+    }
+</script>
