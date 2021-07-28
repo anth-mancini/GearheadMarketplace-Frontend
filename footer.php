@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="css/footer.css">
-<div class="footer">
+<div class="footer" style="background-color:grey;">
     <div class="container">
         <div class="row">
             <div class="col-sm">
