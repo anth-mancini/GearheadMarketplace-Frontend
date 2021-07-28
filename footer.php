@@ -1,5 +1,11 @@
 <link rel="stylesheet" href="css/footer.css">
-<div class="footer">
+<div class="" style="
+    position: relative;
+    /*margin-top: 100px;*/
+    bottom: 0;
+    width: 100%;
+    height: fit-content; /* Set the fixed height of the footer here */
+    background-color: #f5f5f5;">
     <div class="container">
         <div class="row">
             <div class="col-sm">

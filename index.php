@@ -8,6 +8,7 @@
 </head>
 <?php include_once('header.php'); ?>
 <body>
+<body>
 <div class="px-4 py-5 my-6 text-center img-fluid" style="
      background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/assets/images/IMG_4332.jpeg') fixed center no-repeat;
      background-size: cover;
@@ -27,7 +28,6 @@
             <a href="user_splash.php">
                 <button type="button" class="btn btn-danger btn-lg px-4">Browse Listings</button>
             </a>
-
         </div>
     </div>
 </div>

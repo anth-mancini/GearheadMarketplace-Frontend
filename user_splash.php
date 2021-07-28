@@ -12,13 +12,23 @@
 </head>
 <?php include_once('header.php'); ?>
 <body>
-<div id="offerings" class="container d-flex align-items-center justify-content-center text-center h-100"
-     style="height: 100vh">
+<div id="offerings" class="container fluid"
+     style="background: darkorange; margin-top: 70px; margin-bottom: 70px;">
+    <h1>Loading...</h1>
 </div>
 <form id="toOffer" name ="toOffer" action="offerPage.php" method="post">
     <input type="hidden" id="offerID" name="offerID" value="">
 </form>
-
+<div class="container fluid" style="align-items: center">
+    <div class="row">
+        <div class="col">
+            <nav id="pageNav">
+                <ul id="pageList" class="pagination">
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
 </body>
 <?php include_once('footer.php'); ?>
 </html>
@@ -26,33 +36,53 @@
     // let backendURL = 'http://0.0.0.0:8000/';
     let temp = "";
     let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
+    let listingData = {};
     $(function () {
+        $.ajax({
+            url: backendURL + 'offers/',
+            type: 'get',
+            success: function (response) {
+                listingData = response;
+                renderOffering(listingData, 6, 0);
+                renderPages(listingData.length, 6);
+            }
+        })
+        // fetch(backendURL + 'offers/', {
+        //     method: 'get',
+        // })
+        //     .then(response => response.json()).then(data => {
+        //     // console.log(data);
+        //
+        // }).catch(error => {
+        //     console.log(error);
+        // })
         // Handler for .ready() called.
-        fetch(backendURL + 'offers/', {
-            method: 'get',
-        })
-            .then(response => response.json()).then(data => {
-            console.log(data);
-            renderOffering(data, 12);
-        }).catch(error => {
-            console.log(error);
-        })
+        $(document).on("click", "li.page-item", function (event) {
+            // $(this).parent().remove();
+            // console.log(event.target.id)
+            renderOffering(listingData, 6, event.target.id - 1);
+        });
+        $(document).on("click", "img.offering", function (e) {
+        console.log(e.target.id)
+        openOffer(e.target.id);
+    });
     });
     $("button#page1").click(function (e) {
         e.preventDefault();
     });
 
-    $(document).on("click", "img.offering", function (e) {
-        console.log(e.target.id)
-        openOffer(e.target.id);
-
-    });
-
+    function renderPages(numOffers, numOffersPerPage) {
+        let numPages = Math.ceil(numOffers / numOffersPerPage);
+        for (let k = 0; k < numPages; k++) {
+            $('#pageList').append('<li class="page-item"><a id="' + (k + 1) + '" class="page-link" href="#">' + (k + 1) + '</a></li>')
+        }
+    }
     function openOffer(id) {
         document.getElementById("offerID").value = id;
         //alert(id);
         document.getElementById("toOffer").submit();
     }
+    
 
     /// Render offering
     // This code needs to be expanded to support pagintion (pages)
@@ -62,22 +92,25 @@
     // There is some logic to lay out listings "nicely"
     // For example, if we have only 3 listings, then we would render only one row
     // if we have >6 listings than we'd render two
-    function renderOffering(data, max) {
+    function renderOffering(data, max, pageNum) {
         // Max 6 listings in a row
         // x | x | x | x | x | x
         let maxCols = 6;
-        let range = max; // set the range to max
+        let range = data.length; // set the range to max
 
         //if we have less offerings than our max, then set our range to that
         if (data.length < max)
             range = data.length;
 
         // get the number of rows we're going to need
-        let numRows = Math.ceil(range / maxCols);
-
+        let numRows = Math.ceil(max / maxCols);
         // tracker to make sure we don't go over the actual number of offerings
         // can overshoot with current row/col logic
-        let offerCount = 0;
+        // page 1 : 0
+        // page 2: 6
+        let offerCount = max * pageNum - 1;
+        if (offerCount < 0)
+            offerCount = 0;
 
         //Our final HTML grid to be added to some div later
         let buildGrid = '';
@@ -101,7 +134,6 @@
                         imgPortion = '<img class="offering" id=' + data[offerCount].images[0].offer_id + ' height="200" width="200" src="' +
                             data[offerCount].images[0].link.replace(/\s/g, '+') + '" >';
                     }
-
                     // add a p tag with the offering title
                     let paraPortion = '<p id="p' + (offerCount + 1) + '">' + data[offerCount].title + '</p>';
                     let closingDivTag = '</div>'; // close out the column
