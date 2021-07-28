@@ -70,9 +70,12 @@
     let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
 
     //$(document).ready(function() {
-    $("form#addOffer").submit(function (e) {
+
+    //$("form#addOffer").submit(function (e) {
+    //$( window ).load(function() {
+    $(function () {
         console.log( "ready!" );
-        e.preventDefault();
+        //e.preventDefault();
         fetch(backendURL + 'offers/', {
             method: 'get',
         })
