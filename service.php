@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <?php include_once('header.php'); ?>
-<body style="background-color: lightgreen;">
+<body style="background-color: darkorange;">
 <h1>Our Services</h1>
 <!--List of benefits for dealing on GeadHead Mar-->
 <h3>Benefits for Buyers</h3>

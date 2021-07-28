@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <?php include_once('header.php'); ?>
-<body style="background-color: lightgreen;">
+<body style="background-color: darkorange;">
 <div class="px-4 py-5 my-5 text-center">
     <h1>GearHead's Mission</h1>
     <!--car part images-->
