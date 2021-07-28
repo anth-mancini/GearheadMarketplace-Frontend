@@ -24,6 +24,7 @@
 </html>
 <script>
     // let backendURL = 'http://0.0.0.0:8000/';
+    let temp = "";
     let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
     $(function () {
         // Handler for .ready() called.
@@ -41,21 +42,16 @@
         e.preventDefault();
     });
 
-    $(document).on("click", "img.offering", function (event) {
-        //$(this).parent().remove();
-        //console.log(event.target.id)
-        openOffer(event.target.id);
-        alert(event.target.id);
-        //console.log(event.target.id);
-        //alert(event.target);
-    });
+    $(document).on("click", "img.offering", function (e) {
+        console.log(e.target.id)
+        openOffer(e.target.id);
 
+    });
 
     function openOffer(id) {
         document.getElementById("offerID").value = id;
         //alert(id);
         document.getElementById("toOffer").submit();
-        //window.open("http://localhost:8888/offerPage.php");
     }
 
     /// Render offering
@@ -100,9 +96,11 @@
                     let imgPortion = "";
                     // Add image from database to an img tag
                     if (data[offerCount].images.length > 0) {
+
+                        temp = data[offerCount].images[0].offer_id;
                         // imgPortion = '<img id=' + '"tag' + (offerCount + 1) + '" height="200" width="200" src="' +
                         //     data[offerCount].images[0].link.replace(/\s/g, '+') + '" onclick="openOffer(data,offerCount)"  >';
-                        imgPortion = '<img class="offering" id=' + '"' + data.offer_id + '" height="200" width="200" src="' +
+                        imgPortion = '<img class="offering" id=' + data[offerCount].images[0].offer_id + ' height="200" width="200" src="' +
                             data[offerCount].images[0].link.replace(/\s/g, '+') + '" >';
                     }
 

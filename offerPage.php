@@ -4,7 +4,6 @@ if(isset($_POST['offerID'])) {
 
 
     $itemID = $_POST['offerID'];
-    echo $itemID;
 }
 
 ?>
@@ -24,33 +23,21 @@ if(isset($_POST['offerID'])) {
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col">
-                        <img tag="item" src="assets/images/blank.png" width="550px" length="550px" class="img-thumbnail" class="rounded" class="img-fluid" alt="...">
+                        <img id="item" src="assets/images/blank.png" width="550px" length="550px" class="img-thumbnail" class="rounded" class="img-fluid" alt="...">
                     </div>
                     <div class="col">
-                        <p id="p1"><?php echo htmlentities($itemID); ?></p>
+
+                        <input type="hidden" id="offerID" name="offerID" value="<?php echo htmlentities($itemID); ?>">
+
+                        <h1 id="title"></h1>
                         <br>
-                        <h2 id="location">LOCATION</h2>
+                        <h2 id="location">Location : </h2>
                         <br>
-                        <h3 id="desc">
-                            THIS IS A DESCRIPTION
-                            THIS IS A DESCRIPTION
-                            THIS IS A DESCRIPTION
-                            THIS IS A DESCRIPTION
-                            THIS IS A DESCRIPTION
-                            THIS IS A DESCRIPTION
-                            THIS IS A DESCRIPTION
-                            THIS IS A DESCRIPTION
-                            THIS IS A DESCRIPTION
-                            THIS IS A DESCRIPTION
-                            THIS IS A DESCRIPTION
-                            THIS IS A DESCRIPTION
-                            THIS IS A DESCRIPTION
-                            THIS IS A DESCRIPTION
-                        </h3>
+                        <h3 id="desc"></h3>
                         <br>
-                        <h3 id="ship">WILLING TO SHIP</h3>
+                        <h4 id="ship">Shipping : </h4>
                         <br>
-                        <h4 id="price">PRICE</h4>
+                        <h5 id="price">Price : </h5>
                     </div>
 
                 </div>
@@ -73,6 +60,8 @@ if(isset($_POST['offerID'])) {
 <script>
     let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
 
+    let temp  = <?php echo htmlentities($itemID); ?>  ;
+    console.log(temp);
     //$(document).ready(function() {
 
     //$("form#addOffer").submit(function (e) {
@@ -80,13 +69,13 @@ if(isset($_POST['offerID'])) {
     $(function () {
         console.log( "ready!" );
         //e.preventDefault();
-        fetch(backendURL + 'offers/', {
+        fetch(backendURL + 'offers/' + temp, {
             method: 'get',
         })
             .then(response => response.json()).then(data => {
             // console.log(data)
             // console.log(data[0])
-            // renderOffering(data)
+            renderOffering(data)
         }).catch(error => {
             // console.log(error)
         })
@@ -96,15 +85,21 @@ if(isset($_POST['offerID'])) {
 
         //$("#tag1").attr("src", "https://gearhead-images.s3.amazonaws.com/images/Screen Shot 2021-06-28 at 3.20.56 PM.png")
 
-        $("p#p1").append(data[0].title)
-        // $("div#offerings").append('<h2>Description:' + data.description + '</h2>')
-        // $("div#offerings").append('<h3>Price:' + data.price + '</h3>')
-        // $("div#offerings").append('<h4>Location:' + data.location + '</h4>')
-        // $("div#offerings").append('<h5>Willing to ship:' + data['shipping_availability'] + '</h5>')
-
-        for(let img of data.images){
-            $("item").attr("src","' + img.link.replace(/\s/g, '+') + '")
+        $("h1#title").append(data.title)
+        $("h2#location").append(data.location)
+        $("h3#desc").append(data.description)
+        if(data.shipping_availability === true)
+        {
+            $("h4#ship").append("Yes")
         }
+        else{
+            $("h4#ship").append("No")
+        }
+
+        $("h5#price").append(data.price)
+        //$("img#item").attr("src", data.images[0].link)
+        //console.log(data.images[0].link)
+        document.getElementById("item").src = data.images[0].link;
     }
 
 </script>
