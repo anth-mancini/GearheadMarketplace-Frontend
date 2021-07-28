@@ -15,6 +15,10 @@
 <div id="offerings" class="container d-flex align-items-center justify-content-center text-center h-100"
      style="height: 100vh">
 </div>
+<form id="toOffer" name ="toOffer" action="offerPage.php" method="post">
+    <input type="hidden" id="offerID" name="offerID" value="">
+</form>
+
 </body>
 <?php include_once('footer.php'); ?>
 </html>
@@ -36,6 +40,21 @@
     $("button#page1").click(function (e) {
         e.preventDefault();
     });
+
+    $(document).on("click", "img.offering", function (event) {
+        //$(this).parent().remove();
+        //console.log(event.target.id)
+        openOffer(event.target.id);
+        alert(event.target.id);
+    });
+
+
+    function openOffer(id) {
+        document.getElementById("offerID").value = id;
+        //alert(id);
+        document.getElementById("toOffer").submit();
+        //window.open("http://localhost:8888/offerPage.php");
+    }
 
     /// Render offering
     // This code needs to be expanded to support pagintion (pages)
@@ -79,9 +98,15 @@
                     let imgPortion = "";
                     // Add image from database to an img tag
                     if (data[offerCount].images.length > 0) {
-                        imgPortion = '<img id=' + '"tag' + (offerCount + 1) + '" height="200" width="200" src="' +
+                        // imgPortion = '<img id=' + '"tag' + (offerCount + 1) + '" height="200" width="200" src="' +
+                        //     data[offerCount].images[0].link.replace(/\s/g, '+') + '" onclick="openOffer(data,offerCount)"  >';
+                        imgPortion = '<img class="offering" id=' + '"' + data.offer_id + '" height="200" width="200" src="' +
                             data[offerCount].images[0].link.replace(/\s/g, '+') + '" onclick="">';
+
+
                     }
+
+                    // document.getElementById('offerID').submit(); "
 
                     // add a p tag with the offering title
                     let paraPortion = '<p id="p' + (offerCount + 1) + '">' + data[offerCount].title + '</p>';

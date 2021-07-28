@@ -1,5 +1,12 @@
 <?php
 
+if(isset($_POST['offerID'])) {
+
+
+    $itemID = $_POST['offerID'];
+    echo $itemID;
+}
+
 ?>
 <html lang="en">
 <head>
@@ -20,7 +27,7 @@
                         <img tag="item" src="assets/images/blank.png" width="550px" length="550px" class="img-thumbnail" class="rounded" class="img-fluid" alt="...">
                     </div>
                     <div class="col">
-                        <p id="p1">TITLE</p>
+                        <p id="p1"><?php echo htmlentities($itemID); ?></p>
                         <br>
                         <h2 id="location">LOCATION</h2>
                         <br>
@@ -58,9 +65,6 @@
             </center>
         </div>
     </div>
-    <form id="addOffer" method="post">
-        <button class="btn btn-primary">Get offerings</button>
-    </form>
 
 </body>
 </html>
@@ -80,9 +84,9 @@
             method: 'get',
         })
             .then(response => response.json()).then(data => {
-            console.log(data)
-            console.log(data[0])
-            renderOffering(data)
+            // console.log(data)
+            // console.log(data[0])
+            // renderOffering(data)
         }).catch(error => {
             // console.log(error)
         })
