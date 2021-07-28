@@ -63,7 +63,7 @@ if (!session_id()) @ session_start();
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="./testForms/offer-form-test.php">Create Listing</a></li>
-                            <li><a class="dropdown-item" href="./dashboard.php">Settings</a></li>
+                            <li><a class="dropdown-item" href="./user_dashboard.php">Settings</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
