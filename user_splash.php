@@ -29,8 +29,8 @@
         </div>
     </div>
 </div>
-</body>
 <?php include_once('footer.php'); ?>
+</body>
 </html>
 <script>
     // let backendURL = 'http://0.0.0.0:8000/';
