@@ -1,16 +1,18 @@
 <?php
+if (!session_id()) @ session_start();
+// if user is not allowed on this page, kick them out.
 
+if (empty($_SESSION['isAdmin']) || !isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] === false) {
+    echo "<script> window.location.replace('/'); alert('Only Admins are allowed on this page');</script>";
+}
 ?>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="../js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/bootstrap.css">
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -26,29 +28,12 @@
             }
         }
     </style>
-
-
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
 </head>
+<?php include_once('header.php') ?>
 <body>
-
-<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="index.php">Gearhead MarketPlace</a>
-    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
-            aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-    <div class="navbar-nav">
-        <div class="nav-item text-nowrap">
-            <a class="nav-link px-3" href="#">Sign out</a>
-        </div>
-    </div>
-</header>
-
-<div class="container-fluid">
+<div class="container-fluid" style="padding-top: 60px">
     <div class="row">
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
             <div class="position-sticky pt-3">
@@ -78,37 +63,14 @@
                         </a>
                     </button>
                 </ul>
-
             </div>
         </nav>
-
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Dashboard</h1>
-
             </div>
-
-            <iframe src="Login.php" , style="width:100%;height:500%;" ,>
-
-            </iframe>
+        </main>
     </div>
-    </main>
 </div>
-</div>
-
-<script type="text/javascript">
-    $(document).on('click', 'ul li', function () {
-        $(this).addClass('nav-item').siblings().removeClass('nav-item')
-    })
-</script>
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
-        integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
-        integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
-        crossorigin="anonymous"></script>
-<script src="dashboard.js"></script>
 </body>
 </html>

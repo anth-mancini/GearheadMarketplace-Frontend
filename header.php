@@ -1,9 +1,7 @@
 <?php
 if (!session_id()) @ session_start();
 ?>
-
 <link rel="stylesheet" href="css/header.css">
-<script src="js/jquery-3.6.0.min.js"></script>
 <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
@@ -39,13 +37,43 @@ if (!session_id()) @ session_start();
                     <button id="btnLogin" class="btn btn-primary">Login</button>
                 </a>';
                 } else {
-                    echo '<a href="logout.php"><button id="btnLogin" class="btn btn-primary">Logout</button>
-                </a>';
+                    if ($_SESSION['isAdmin']) {
+                        echo '<div class="clearfix"><ul class="navbar-nav me-auto mb-2 mb-lg-0 float-end">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Account
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="./testForms/offer-form-test.php">Create Listing</a></li>
+                            <li><a class="dropdown-item" href="./admin.php">Settings</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul></div>';
+                    } else {
+                        echo '<div class="clearfix"><ul class="navbar-nav me-auto mb-2 mb-lg-0 float-end">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Account
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="./testForms/offer-form-test.php">Create Listing</a></li>
+                            <li><a class="dropdown-item" href="./dashboard.php">Settings</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul></div>';
+                    }
                 }
                 ?>
-                <!--                <a href="login.php">-->
-                <!--                    <button class="btn btn-primary">Login</button>-->
-                <!--                </a>-->
             </div>
         </div>
     </nav>
