@@ -5,7 +5,7 @@
     bottom: 0;
     width: 100%;
     height: fit-content; /* Set the fixed height of the footer here */
-    background-color: #f5f5f5;">
+    background-color: grey;">
     <div class="container">
         <div class="row">
             <div class="col-sm">
