@@ -16,6 +16,9 @@
      style="background: darkorange; margin-top: 70px; margin-bottom: 70px;">
     <h1>Loading...</h1>
 </div>
+<form id="toOffer" name ="toOffer" action="offerPage.php" method="post">
+    <input type="hidden" id="offerID" name="offerID" value="">
+</form>
 <div class="container fluid" style="align-items: center">
     <div class="row">
         <div class="col">
@@ -31,6 +34,7 @@
 </html>
 <script>
     // let backendURL = 'http://0.0.0.0:8000/';
+    let temp = "";
     let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
     let listingData = {};
     $(function () {
@@ -58,6 +62,10 @@
             // console.log(event.target.id)
             renderOffering(listingData, 6, event.target.id - 1);
         });
+        $(document).on("click", "img.offering", function (e) {
+        console.log(e.target.id)
+        openOffer(e.target.id);
+    });
     });
     $("button#page1").click(function (e) {
         e.preventDefault();
@@ -69,6 +77,12 @@
             $('#pageList').append('<li class="page-item"><a id="' + (k + 1) + '" class="page-link" href="#">' + (k + 1) + '</a></li>')
         }
     }
+    function openOffer(id) {
+        document.getElementById("offerID").value = id;
+        //alert(id);
+        document.getElementById("toOffer").submit();
+    }
+    
 
     /// Render offering
     // This code needs to be expanded to support pagintion (pages)
@@ -101,27 +115,27 @@
         //Our final HTML grid to be added to some div later
         let buildGrid = '';
         for (let j = 0; j < numRows; j++) {
+
             //open a new row
-            buildGrid += '<div id="row' + (j + 1) + '" class="row">'
+            buildGrid += '<div id="row' + (j + 1) + '" class="row" style="background: darkorange;">'
             for (let k = 0; k < maxCols; k++) {
                 // if we havent rendered our range, add more offerings
                 if (offerCount < range) {
-                    console.log(offerCount);
-
                     // open a new col
-                    let divPortion = '<div class="col" style="padding: 5px;">';
+                    let divPortion = '<div class="col" style="">';
 
                     // (legacy) blank image
                     // let imgPortion = '<img id=' + '"tag' + (offerCount + 1) + '" height="200" width="200" src="assets/images/blank.png" onclick="">';
                     let imgPortion = "";
                     // Add image from database to an img tag
                     if (data[offerCount].images.length > 0) {
-                        imgPortion = '<img id=' + '"tag' + (offerCount + 1) + '" height="200" width="200" src="' +
-                            data[offerCount].images[0].link.replace(/\s/g, '+') + '">';
+
+                        temp = data[offerCount].images[0].offer_id;
+                        imgPortion = '<img class="offering" id=' + data[offerCount].images[0].offer_id + ' height="200" width="200" src="' +
+                            data[offerCount].images[0].link.replace(/\s/g, '+') + '" >';
                     }
                     // add a p tag with the offering title
                     let paraPortion = '<p id="p' + (offerCount + 1) + '">' + data[offerCount].title + '</p>';
-
                     let closingDivTag = '</div>'; // close out the column
                     // add all tags to the overall grid
                     buildGrid += divPortion + imgPortion + paraPortion + closingDivTag;
