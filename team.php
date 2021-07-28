@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="css/bootstrap.css">
     </head>
     <?php include_once('header.php'); ?>
-    <body style="background-color: lightgreen;">
+    <body style="background-color: darkorange;">
 
         <h1>Our Team</h1>
         <!--maybe picture and discription-->

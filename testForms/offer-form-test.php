@@ -1,4 +1,8 @@
 <?php
+if (!session_id()) @ session_start();
+    if (isset($_SESSION['userID'])) {
+            $uid = $_SESSION['userID'];;
+    }
 
 ?>
 <html lang="en">
@@ -13,9 +17,7 @@
 
 <form id="addOffer" method="post">
     <div class="mb-3">
-        <label class="form-label">User ID</label>
-        <input class="form-control" type="text" name="user_id"/>
-        <div class="form-text">This ID actually needs to be supplied via PHP/JQuery</div>
+        <input class="form-control" type="hidden" name="user_id" value="<?php echo htmlentities($uid); ?>"/>
     </div>
     <div class="mb-3">
         <label class="form-label">Title of Offer</label>
