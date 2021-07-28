@@ -101,7 +101,7 @@
                         imgPortion = '<img class="offering" id=' + data[offerCount].images[0].offer_id + ' height="200" width="200" src="' +
                             data[offerCount].images[0].link.replace(/\s/g, '+') + '" >';
                     }
-                    
+
                     // add a p tag with the offering title
                     let paraPortion = '<p id="p' + (offerCount + 1) + '">' + data[offerCount].title + '</p>';
                     let closingDivTag = '</div>'; // close out the column
