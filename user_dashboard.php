@@ -321,7 +321,7 @@ if (empty($_SESSION['isAdmin']) || !isset($_SESSION['isAdmin'])) {
         for (let f of formData.entries()) {
             convertedData[f[0]] = f[1]
         }
-        console.log(convertedData);
+        // console.log(convertedData);
         $.ajax({
             type: 'post',
             url: backendURL + 'users/' + <?php echo $_SESSION['userID'];?>,
