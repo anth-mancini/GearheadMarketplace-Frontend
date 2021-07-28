@@ -98,14 +98,10 @@
                     if (data[offerCount].images.length > 0) {
 
                         temp = data[offerCount].images[0].offer_id;
-                        // imgPortion = '<img id=' + '"tag' + (offerCount + 1) + '" height="200" width="200" src="' +
-                        //     data[offerCount].images[0].link.replace(/\s/g, '+') + '" onclick="openOffer(data,offerCount)"  >';
                         imgPortion = '<img class="offering" id=' + data[offerCount].images[0].offer_id + ' height="200" width="200" src="' +
                             data[offerCount].images[0].link.replace(/\s/g, '+') + '" >';
                     }
-
-                    // document.getElementById('offerID').submit(); "
-
+                    
                     // add a p tag with the offering title
                     let paraPortion = '<p id="p' + (offerCount + 1) + '">' + data[offerCount].title + '</p>';
                     let closingDivTag = '</div>'; // close out the column
