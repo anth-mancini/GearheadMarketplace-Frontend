@@ -86,7 +86,7 @@ if (!empty($_SESSION['isAdmin']) || isset($_SESSION['isAdmin'])) {
             },
             success: function (data) {
                 if(data =="Username or password is wrong") {
-                    alert("password is wrong");
+                    alert("password/username is wrong");
                 }
                 if(data !="Username or password is wrong") {
                     // Return a dict with user_name, and isAdmin value
