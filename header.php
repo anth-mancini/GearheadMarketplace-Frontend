@@ -1,8 +1,9 @@
 <?php
 if (!session_id()) @ session_start();
 ?>
-<link rel="stylesheet" href="css/header.css">
+
 <header>
+    <link rel="stylesheet" href="css/header.css">
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Gearhead Market Place</a>
