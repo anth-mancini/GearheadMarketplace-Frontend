@@ -1,4 +1,6 @@
 <?php
+
+//when session is started save all user info to retain logged in session
 if (!session_id()) @ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

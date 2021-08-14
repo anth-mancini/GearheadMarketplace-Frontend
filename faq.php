@@ -6,14 +6,17 @@
     <script src="js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
+<!--insert header-->
 <?php include_once('header.php'); ?>
 <body>
+<!--add bg-->
 <div class="px-4 py-5 my-6 text-center img-fluid" style="
      background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/assets/images/IMG_4332.jpeg') ;
      background-size: cover;
      ">
     <br>
     <br>
+    <!--step by step how to guide-->
     <h1 class="display-5 fw-bold" style="color: white">How to Use our Store</h1>
         <p class="lead mb-4" style="color: white">
             First things first, signup for an account
@@ -42,6 +45,7 @@
 
 
 
+    <!--button to login page-->
         </p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             <a href="login.php">

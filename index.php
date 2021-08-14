@@ -10,6 +10,7 @@
 <body>
 <body>
 <div class="px-4 py-5 my-6 text-center img-fluid" style="
+
      background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/assets/images/IMG_4332.jpeg') fixed center no-repeat;
      background-size: cover;
      height: 100vh;">

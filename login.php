@@ -22,6 +22,8 @@ if (!empty($_SESSION['isAdmin']) || isset($_SESSION['isAdmin'])) {
         <div class="card-header">
             <div style="text-align: center;"><h3>Login</h3></div>
         </div>
+
+        <!--bootstrap login menu-->
         <div class="card-body">
             <form id="loginTry" method="post" action="loginsplash.php">
                 <input type="hidden" id="admin" placeholder="false" name="admin" value="false">
@@ -49,6 +51,7 @@ if (!empty($_SESSION['isAdmin']) || isset($_SESSION['isAdmin'])) {
             </form>
         </div>
         <div class="card-footer">
+            <!--link to signup-->
             <div class="d-flex justify-content-center links">
                 Don't have an account?<a href="signup.php">Sign Up</a>
             </div>
@@ -59,11 +62,15 @@ if (!empty($_SESSION['isAdmin']) || isset($_SESSION['isAdmin'])) {
     </div>
 </div>
 </body>
+<!--import footer-->
 <?php include_once('footer.php'); ?>
 </html>
 <script>
     var status;
+    //connect backend
     let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
+
+    //on form attempt
     $(function () {
         $("form#loginTry").submit(function (e) {
             e.preventDefault();
@@ -74,6 +81,7 @@ if (!empty($_SESSION['isAdmin']) || isset($_SESSION['isAdmin'])) {
             for(let f of formData.entries()) {
                 convertedData[f[0]] = f[1]
             }
+            //ajax to connect to backend
             $.ajax({
                 type: 'post',
                 url: backendURL + 'login/',

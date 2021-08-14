@@ -1,5 +1,6 @@
 <?php
 
+//get offerID from posted form
 if(isset($_POST['offerID'])) {
 
 
@@ -27,8 +28,10 @@ if(isset($_POST['offerID'])) {
                     </div>
                     <div class="col">
 
+                        <!--hidden form  to get item id and hold it-->
                         <input type="hidden" id="offerID" name="offerID" value="<?php echo htmlentities($itemID); ?>">
 
+                        <!--Setup where data will load to-->
                         <h1 id="title"></h1>
                         <br>
                         <h2 id="location">Location : </h2>
@@ -45,7 +48,9 @@ if(isset($_POST['offerID'])) {
         </div>
     </div>
 
+    <!--cool box to hold button-->
     <div class="shadow-lg p-3 mb-5 bg-dark rounded">
+        <!--mail button-->
         <div class="w-auto p-3" style="background-color: #0d6efd;">
             <center>
                 <button type="button" onclick="mailSeller();"class="btn btn-warning">Contact Seller</button>
@@ -59,14 +64,17 @@ if(isset($_POST['offerID'])) {
 
 
 <script>
+    //connect to backend
     let backendURL = 'https://backend-gearheadmarketplace.herokuapp.com/';
 
+    //some variables
     let temp  = <?php echo htmlentities($itemID); ?>  ;
     let posterId = "";
     let mailAddress = "";
     let offerName = "";
     console.log(temp);
-    
+
+    //on open load the  offers data from database
     $(function () {
         console.log( "ready!" );
         //e.preventDefault();
@@ -84,6 +92,7 @@ if(isset($_POST['offerID'])) {
             // console.log(error)
         })
     });
+    //if mail button is  clicked
     function mailSeller() {
         console.log( "ready!" );
         //e.preventDefault();
@@ -95,14 +104,18 @@ if(isset($_POST['offerID'])) {
             // console.log(data[0])
             mailAddress = data.email;
             console.log(mailAddress);
+            //open mail app with seller info
             window.location.href = "mailto:" + mailAddress +"?subject=Gearhead%20Marketplace%20Listing%20Inquiry%20-%20" + offerName +"&body=Type%20message%20here";
         }).catch(error => {
             // console.log(error)
         })
     }
 
+    //loads the offereing into html
     function renderOffering(data){
 
+        //takes data stored in data and pulls all info
+        //places using tags
         $("h1#title").append(data.title)
         $("h2#location").append(data.location)
         $("h3#desc").append(data.description)

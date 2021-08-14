@@ -12,10 +12,12 @@
 </head>
 <?php include_once('header.php'); ?>
 <body>
+<!--bootstrap container to dynamically hold offers-->
 <div id="offerings" class="container fluid"
      style="background: darkorange; margin-top: 70px; margin-bottom: 70px;">
     <h1>Loading...</h1>
 </div>
+<!--this form is hidden, when an item is clicked this form is posted with that items id, it opens offerpage.php-->
 <form id="toOffer" name ="toOffer" action="offerPage.php" method="post">
     <input type="hidden" id="offerID" name="offerID" value="">
 </form>
@@ -64,6 +66,7 @@
         });
         $(document).on("click", "img.offering", function (e) {
         console.log(e.target.id)
+        //open the offer when a img is clicked on, all imgs have the same class
         openOffer(e.target.id);
     });
     });
@@ -71,12 +74,14 @@
         e.preventDefault();
     });
 
+    //dynamically loads all the  pages from db
     function renderPages(numOffers, numOffersPerPage) {
         let numPages = Math.ceil(numOffers / numOffersPerPage);
         for (let k = 0; k < numPages; k++) {
             $('#pageList').append('<li class="page-item"><a id="' + (k + 1) + '" class="page-link" href="#">' + (k + 1) + '</a></li>')
         }
     }
+    //when  an offer is clicked take the  offers id and submit it into the form
     function openOffer(id) {
         document.getElementById("offerID").value = id;
         //alert(id);
